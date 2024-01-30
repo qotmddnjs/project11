@@ -52,4 +52,14 @@ public class UsrMemberController {
 
 		return member;
 	}
+	@RequestMapping("/usr/member/dologin")
+	@ResponseBody
+	public Object doLogin(){
+		
+		
+		
+		
+		return memberService;
+		
+	}
 }

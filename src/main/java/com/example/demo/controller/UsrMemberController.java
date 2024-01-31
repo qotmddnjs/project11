@@ -59,7 +59,7 @@ public class UsrMemberController {
 		}
 
 		Member member = memberService.getMemberByLoginId(loginId);
-
+		
 		if (member == null) {
 			return ResultData.from("F-3", Ut.f("%s(은)는 존재하지 않는 아이디입니다", loginId));
 		}

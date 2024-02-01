@@ -13,7 +13,7 @@
 			<th>작성자</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody> 
 
 		<c:forEach var="article" items="${articles }">
 			<tr>

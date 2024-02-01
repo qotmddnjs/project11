@@ -31,6 +31,8 @@ public class UsrArticleController {
 	@ResponseBody
 	public ResultData<Article> getArticleAction(int id) {
 		Article article = articleService.getArticle(id);
+		
+        	
 
 		if (article == null) {
 			return ResultData.from("F-1", Ut.f("%d번 게시물은 존재하지 않습니다", id));
@@ -47,7 +49,14 @@ public class UsrArticleController {
 
 		return "usr/article/list";
 	}
+	@RequestMapping("/usr/article/detail")
+	public String showdetail(Model model) {
+		List<Article> articles = articleService.getArticles();
 
+		model.addAttribute("articles", articles);
+
+		return "usr/article/detail";
+	}
 	@RequestMapping("/usr/article/doWrite")
 	@ResponseBody
 	public ResultData<Article> doWrite(HttpSession httpSession, String title, String body) {
@@ -55,6 +64,7 @@ public class UsrArticleController {
 		boolean isLogined = false;
 		int loginedMemberId = 0;
 
+		
 		if (httpSession.getAttribute("loginedMemberId") != null) {
 			isLogined = true;
 			loginedMemberId = (int) httpSession.getAttribute("loginedMemberId");

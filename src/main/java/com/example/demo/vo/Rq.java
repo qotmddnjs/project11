@@ -50,7 +50,7 @@ public class Rq {
 		}
 		println("history.back();");
 		println("</script>");
-	}
+	} 
 
 	private void println(String str) {
 		print(str + "\n");

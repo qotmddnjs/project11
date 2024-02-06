@@ -37,13 +37,25 @@
 	</div>
 	<div class="pagination flex justify-center mt-3">
 		<div class="btn-group">
-			<c:forEach begin="1" end="20" var="i">
-				<a class="btn btn-sm ${param.page == i ? 'btn-active' : '' }" href="?page=${i }">${i }</a>
+			<c:forEach begin="1" end="${pagesCount }" var="i">
+				
+
+					<a class="btn btn-sm ${param.page == i ? 'btn-active' : '' }" href="?page=${i }">${i }</a>
+			
+
+
 			</c:forEach>
 		</div>
 	</div>
 </section>
-
+<table class="table-box-1 table" border="1">
+<select name="sk">
+	<option value="m_id">아이디</option>
+	<option value="m_name">이름</option>
+	<option value="a_name">제목</option>
+</select>
+<input type="text" name="sv"/>
+<input type="sumbit" value="검색"/>
 
 
 <%@ include file="../common/foot.jspf"%>

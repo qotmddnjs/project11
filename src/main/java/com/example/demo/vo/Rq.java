@@ -50,7 +50,7 @@ public class Rq {
 		}
 		println("history.back();");
 		println("</script>");
-	} 
+	}
 
 	private void println(String str) {
 		print(str + "\n");
@@ -74,6 +74,12 @@ public class Rq {
 
 	public void initBeforeActionInterceptor() {
 
+	}
+
+	public String historyBackOnView(String msg) {
+		req.setAttribute("msg", msg);
+		req.setAttribute("historyBack", true);
+		return "usr/common/js";
 	}
 
 }

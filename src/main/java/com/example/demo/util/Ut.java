@@ -80,5 +80,10 @@ public class Ut {
 				""", resultMsg, replaceUri);
 	}
 
+	public static int selectRowIntValue() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }

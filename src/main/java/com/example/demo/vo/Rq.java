@@ -44,7 +44,7 @@ public class Rq {
 	public void printHistoryBack(String msg) throws IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		println("<script>");
-		if (!Ut.isEmpty(msg)) {
+		if (!Ut.isEmpty(msg)) { 
 			System.err.println("alert('" + msg + "');");
 			println("alert('" + msg + "');");
 		}

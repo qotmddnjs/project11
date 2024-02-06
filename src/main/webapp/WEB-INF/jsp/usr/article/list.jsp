@@ -66,7 +66,15 @@
 		</div>
 	</div>
 </section>
+<div class="mx-auto overflow-x-auto">
+<select name="sk">
+	<option value="m_id">아이디</option>
+	<option value="m_name">이름</option>
+	<option value="a_name">제목</option>
+</select>
+<input type="text" name="sv"/>
+<input class="btn"type="sumbit" value="검색"/>
 
-
+</div>
 
 <%@ include file="../common/foot.jspf"%>

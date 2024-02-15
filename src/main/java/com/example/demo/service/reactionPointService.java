@@ -1,20 +1,28 @@
 package com.example.demo.service;
 
-public class reactionPointService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-	public static void increaseGoodRp(int id) {
-		// TODO Auto-generated method stub
-		
+import com.example.demo.repository.ReactionPointRepository;
+
+@Service
+public class ReactionPointService {
+
+	@Autowired
+	private ReactionPointRepository reactionPointRepository;
+
+	public ReactionPointService(ReactionPointRepository reactionPointRepository) {
+		this.reactionPointRepository = reactionPointRepository;
 	}
 
-	public static int getGoodRpCount(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public static void addIncreasingGoodRpInfo(int id, int loginedMemberId) {
-		// TODO Auto-generated method stub
+	public int usersReaction(int loginedMemberId, String relTypeCode, int relId) {
 		
+		// 로그인 x
+		if (loginedMemberId == 0) {
+			return -2;
+		}
+
+		return reactionPointRepository.getSumReactionPoint(loginedMemberId, relTypeCode, relId);
 	}
 
 }

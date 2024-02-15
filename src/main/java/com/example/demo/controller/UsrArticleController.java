@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.ArticleService;
 import com.example.demo.service.BoardService;
+import com.example.demo.service.reactionPointService;
 import com.example.demo.util.Ut;
 import com.example.demo.vo.Article;
 import com.example.demo.vo.Board;
@@ -189,6 +190,19 @@ public class UsrArticleController {
 
 		return Ut.jsReplace(loginedMemberCanDeleteRd.getResultCode(), loginedMemberCanDeleteRd.getMsg(),
 				"../article/list");
+	}
+	@RequestMapping("/usr/reactionPoint/increaseGoodRp")
+	@ResponseBody
+	public int increaseGoodRp(int id) {
+    	// article 테이블에서 해당 게시물의 좋아요 1 증가 
+		reactionPointService.increaseGoodRp(id);
+        // article 테이블에서 해당 게시물의 최신화된 좋아요 수 불러오기
+		int goodRp = reactionPointService.getGoodRpCount(id);
+		
+        // reactionPoint 테이블에 리액션 정보(게시판 id, 게시물 id, 사용자 id)를 기록
+		reactionPointService.addIncreasingGoodRpInfo(id, (int) rq.getLoginedMemberId());
+
+		return goodRp;
 	}
 
 }

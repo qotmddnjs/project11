@@ -44,7 +44,7 @@ public class Rq {
 	public void printHistoryBack(String msg) throws IOException {
 		resp.setContentType("text/html; charset=UTF-8");
 		println("<script>");
-		if (!Ut.isEmpty(msg)) { 
+		if (!Ut.isEmpty(msg)) {
 			System.err.println("alert('" + msg + "');");
 			println("alert('" + msg + "');");
 		}
@@ -80,6 +80,23 @@ public class Rq {
 		req.setAttribute("msg", msg);
 		req.setAttribute("historyBack", true);
 		return "usr/common/js";
+	}
+
+	public String getCurrentUri() {
+		String currentUri = req.getRequestURI();
+		String queryString = req.getQueryString();
+
+		System.err.println(currentUri);
+		System.err.println(queryString);
+
+		if (currentUri != null && queryString != null) {
+			currentUri += "?" + queryString;
+		}
+
+		System.out.println(currentUri);
+
+		return currentUri;
+
 	}
 
 }

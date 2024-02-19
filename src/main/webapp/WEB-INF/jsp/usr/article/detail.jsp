@@ -9,9 +9,15 @@
 <script>
 	const params = {};
 	params.id = parseInt('${param.id}');
+	params.memberId = parseInt('${loginedMemberId}');
+	
+	console.log(params);
+	console.log(params.memberId);
 	
 	var isAlreadyAddGoodRp = ${isAlreadyAddGoodRp};
 	var isAlreadyAddBadRp = ${isAlreadyAddBadRp};
+	
+	
 </script>
 
 <!-- 조회수 -->
@@ -51,9 +57,15 @@
 			return;
 		}
 	}
-
-	//////////////// articleContoller에서 애초에 count 값을 같이 model에 포함시켜서 보내자
+	
 	function doGoodReaction(articleId) {
+		if(isNaN(params.memberId) == true){
+			if(confirm('로그인 해야해. 로그인 페이지로 가실???')){
+				var currentUri = encodeURIComponent(window.location.href);
+				window.location.href = '../member/login?afterLoginUri=' + currentUri; // 로그인 페이지에 원래 페이지의 uri를 같이 보냄
+			}
+			return;
+		}
 		
 		$.ajax({
 			url: '/usr/reactionPoint/doGoodReaction',
@@ -101,6 +113,14 @@
 	
 	
 	function doBadReaction(articleId) {
+		
+		if(isNaN(params.memberId) == true){
+			if(confirm('로그인 해야해. 로그인 페이지로 가실???')){
+				var currentUri = encodeURIComponent(window.location.href);
+				window.location.href = '../member/login?afterLoginUri=' + currentUri; // 로그인 페이지에 원래 페이지의 uri를 같이 보냄
+			}
+			return;
+		}
 		
 	 $.ajax({
 			url: '/usr/reactionPoint/doBadReaction',
@@ -189,9 +209,7 @@
 				</tr>
 				<tr>
 					<th>조회수</th>
-					<td>
-						<span class="article-detail__hit-count">${article.hitCount }</span>
-					</td>
+					<td><span class="article-detail__hit-count">${article.hitCount }</span></td>
 				</tr>
 				<tr>
 					<th>제목</th>
@@ -213,9 +231,33 @@
 				<a class="btn btn-outline" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;"
 					href="../article/doDelete?id=${article.id }">삭제</a>
 			</c:if>
+
 		</div>
 	</div>
 </section>
+
+
+<div>
+
+    <form method="post" action="/reply/write">
+    
+        <p>
+            <label>댓글 작성자</label> <input type="text" name="writer">
+        </p>
+        <p>
+            <textarea rows="5" cols="50" name="content"></textarea>
+        </p>
+        <p>
+            <input type="hidden" name="bno" value="${article}">       
+            <button type="submit">댓글 작성</button>
+        </p>
+    </form>
+    
+</div>
+
+
+
+
 
 
 

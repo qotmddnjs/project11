@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -50,7 +51,7 @@ public class UsrMemberController {
 
 	@RequestMapping("/usr/member/doLogin")
 	@ResponseBody
-	public String doLogin(HttpServletRequest req, String loginId, String loginPw) {
+	public String doLogin(HttpServletRequest req, String loginId, String loginPw, String afterLoginUri) {
 
 		Rq rq = (Rq) req.getAttribute("rq");
 
@@ -76,6 +77,10 @@ public class UsrMemberController {
 		}
 
 		rq.login(member);
+
+		if (afterLoginUri.length() > 0) {
+			return Ut.jsReplace("S-1", Ut.f("%s님 환영합니다", member.getNickname()), afterLoginUri);
+		}
 
 		return Ut.jsReplace("S-1", Ut.f("%s님 환영합니다", member.getNickname()), "/");
 	}
@@ -124,5 +129,9 @@ public class UsrMemberController {
 		Member member = memberService.getMember(joinRd.getData1());
 
 		return Ut.jsReplace(joinRd.getResultCode(), joinRd.getMsg(), "../member/login");
+	}
+	@GetMapping("/user/updateForm")
+	public String updateForm() {
+	    return "user/updateForm";
 	}
 }

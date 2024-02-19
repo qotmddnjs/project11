@@ -52,4 +52,9 @@ public class MemberService {
 		return memberRepository.getMember(id);
 	}
 
+	public static java.lang.reflect.Member findByUsername(String memberName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

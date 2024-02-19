@@ -182,7 +182,7 @@ public class UsrArticleController {
 				"../article/detail?id=" + id);
 	}
 
-	// 로그인 체크 -> 유무 체크 -> 권한 체크 -> 삭제
+	// 로그인 체크 -> 유무 체크 -> 권한 체크 -> 삭제 
 	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
 	public String doDelete(HttpServletRequest req, int id) {
@@ -203,5 +203,29 @@ public class UsrArticleController {
 		return Ut.jsReplace(loginedMemberCanDeleteRd.getResultCode(), loginedMemberCanDeleteRd.getMsg(),
 				"../article/list");
 	}
+	@RequestMapping("/usr/article/reply")
+	@ResponseBody
+	public String docomment (HttpServletRequest req, int id) {
+	      Rq rq = (Rq) req.getAttribute("rq");
+	      
+	      Article article = articleService.getArticle(id);
+	      
+	      if (Ut.isNullOrEmpty(title)) {
+				return Ut.jsHistoryBack("F-1", "제목을 입력해주세요");
+			}
+			if (Ut.isNullOrEmpty(body)) {
+				return Ut.jsHistoryBack("F-2", "내용을 입력해주세요");
+			}
+
+			ResultData<Integer> writeArticleRd = articleService.writeArticle(rq.getLoginedMemberId(), title, body);
+
+			int id = (int) writeArticleRd.getData1();
+
+			Article article = articleService.getArticle(id);
+
+			return Ut.jsReplace(writeArticleRd.getResultCode(), writeArticleRd.getMsg(), "../article/detail?id=" + id);
+	}
+	
+	
 
 }

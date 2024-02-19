@@ -7,9 +7,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원정보 수정</title>
-    <!-- bootstrap/css -->
+    
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
-    <!-- bootstrap/js -->
+   
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 </head>
 <body>

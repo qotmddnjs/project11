@@ -130,8 +130,15 @@ public class UsrMemberController {
 
 		return Ut.jsReplace(joinRd.getResultCode(), joinRd.getMsg(), "../member/login");
 	}
-	@GetMapping("/user/updateForm")
-	public String updateForm() {
-	    return "user/updateForm";
+	@RequestMapping("/user/member/update")
+	@ResponseBody
+	public String updateForm(HttpServletRequest req, String loginId, String loginPw, String name, String nickname,
+			String cellphoneNum, String email) {
+		Rq rq = (Rq) req.getAttribute("rq");
+		
+		
+		
+		
+	    return "user/member/update";
 	}
 }

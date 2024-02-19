@@ -209,7 +209,9 @@
 				</tr>
 				<tr>
 					<th>조회수</th>
-					<td><span class="article-detail__hit-count">${article.hitCount }</span></td>
+					<td>
+						<span class="article-detail__hit-count">${article.hitCount }</span>
+					</td>
 				</tr>
 				<tr>
 					<th>제목</th>
@@ -231,33 +233,17 @@
 				<a class="btn btn-outline" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;"
 					href="../article/doDelete?id=${article.id }">삭제</a>
 			</c:if>
-
 		</div>
 	</div>
 </section>
 
+<section class="mt-5 px-3">
+	<div class="mx-auto">
+		<h2>댓글 리스트(${repliesCount })</h2>
+		<div>${replies }</div>
+	</div>
 
-<div>
-
-    <form method="post" action="/reply/write">
-    
-        <p>
-            <label>댓글 작성자</label> <input type="text" name="writer">
-        </p>
-        <p>
-            <textarea rows="5" cols="50" name="content"></textarea>
-        </p>
-        <p>
-            <input type="hidden" name="bno" value="${article}">       
-            <button type="submit">댓글 작성</button>
-        </p>
-    </form>
-    
-</div>
-
-
-
-
+</section>
 
 
 

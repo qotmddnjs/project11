@@ -3,9 +3,6 @@ package com.example.demo.util;
 import java.lang.reflect.Array;
 import java.util.Map;
 
-import com.example.demo.vo.Article;
-import com.example.demo.vo.ResultData;
-
 public class Ut {
 
 	public static String f(String format, Object... args) {
@@ -19,6 +16,10 @@ public class Ut {
 	public static boolean isEmpty(Object obj) {
 		if (obj == null) {
 			return true;
+		}
+
+		if (obj instanceof Integer) {
+			return (int) obj == 0;
 		}
 
 		if (obj instanceof String) {
@@ -79,11 +80,5 @@ public class Ut {
 				</script>
 				""", resultMsg, replaceUri);
 	}
-
-	public static int selectRowIntValue() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 
 }

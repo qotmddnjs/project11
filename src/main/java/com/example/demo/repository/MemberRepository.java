@@ -19,7 +19,7 @@ public interface MemberRepository {
 	@Select("""
 			SELECT *
 			FROM `member`
-			WHERE name = #{name} 
+			WHERE name = #{name}
 			AND email = #{email}
 			""")
 	public Member getMemberByNameAndEmail(String name, String email);
@@ -44,5 +44,31 @@ public interface MemberRepository {
 	@Select("SELECT * FROM `member` WHERE id = #{id}")
 	public Member getMember(int id);
 
-	
+	@Update("""
+			<script>
+			UPDATE `member`
+			<set>
+				<if test="loginPw != null">
+					loginPw = #{loginPw},
+				</if>
+				<if test="name != null">
+					name = #{name},
+				</if>
+				<if test="nickname != null">
+					nickname = #{nickname},
+				</if>
+				<if test="cellphoneNum != null">
+					cellphoneNum = #{cellphoneNum},
+				</if>
+				<if test="email != null">
+					email = #{email},
+				</if>
+				updateDate= NOW()
+			</set>
+			WHERE id = #{loginedMemberId}
+			</script>
+			""")
+	public void modify(int loginedMemberId, String loginPw, String name, String nickname, String cellphoneNum,
+			String email);
+
 }

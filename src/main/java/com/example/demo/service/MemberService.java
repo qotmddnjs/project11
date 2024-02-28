@@ -52,11 +52,10 @@ public class MemberService {
 		return memberRepository.getMember(id);
 	}
 
-	public static java.lang.reflect.Member findByUsername(String memberName) {
-		// TODO Auto-generated method stub
-		return null;
+	public ResultData modify(int loginedMemberId, String loginPw, String name, String nickname, String cellphoneNum,
+			String email) {
+		memberRepository.modify(loginedMemberId, loginPw, name, nickname, cellphoneNum, email);
+		return ResultData.from("S-1", "회원정보 수정 완료");
 	}
-
-
 
 }

@@ -52,6 +52,9 @@
 		</div>
 	</div>
 </section>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS 파일을 연결합니다 -->
 
 
 

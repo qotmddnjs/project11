@@ -31,6 +31,14 @@
 		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff')
 		format('woff');
 }
+@font-face {
+    font-family: 'TTHakgyoansimYeohaengR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_keris@1.0/TTHakgyoansimYeohaengR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+m
 
 .lottemartdream * {
 	font-family: 'LotteMartDream', sans-serif;
@@ -38,6 +46,7 @@
 
 html>body {
 	font-family: 'LotteMartDream', sans-serif;
+	
 }
 
 /* 라이브러리 */
@@ -78,7 +87,258 @@ header>div>ul>li>ul {
 header>div>ul>li:hover>ul {
 	display: block;
 }
-.vv{
-	
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
+/* 상단바 */
+.navbar {
+  background-color: black; /* 상단 바 배경색 */
+  height:100px;
+  display: flex;
+    justify-content: space-between; /* This will push the dropdown menu to the right */
+    align-items: center;
+  
+   
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd; /* 호버시 배경색 */
+  color: black; /* 호버시 글자색 */
+}
+.navbar1 {
+  background-color:black; /* 상단 바 배경색 */
+  overflow: hidden;
+  display: flex; /* Flexbox를 사용하여 가운데 정렬 */
+  justify-content: center;
+  align-items: center; /* 수직 가운데 정렬 */
+  margin-top:3px;
+}
+
+.navbar1 a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  
+  
+}
+
+.navbar1 a:hover {
+  background-color: #ddd; /* 호버시 배경색 */
+  color: black; /* 호버시 글자색 */
+}
+.search-container {
+   margin: auto; /* 수평 가운데 정렬 */
+  
+}
+
+.search-container input[type=text] {
+   padding: 6px;
+  font-size: 14px;
+  border: none;
+}
+
+.search-container button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background: #ddd;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+ .movie.poster {
+  width: 100%;
+  height: 500px;
+  overflow-x: auto; /* 가로 스크롤을 활성화합니다. */
+  white-space: nowrap;
+  overflow-y: hidden; /* 세로 스크롤을 숨깁니다. */
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.movie.poster img {
+  width: 100%;
+  height: 500px;
+  background: url(.jpg);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.algorithm {
+  margin-top:100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.algorithm > div:first-child {
+  text-align: left;
+  font-size: 24px;
+}
+
+.image-container {
+  margin-top:50px;
+  display: flex;
+  flex-wrap: nowrap; /* 이미지들이 한 줄에 모두 나열되도록 설정합니다. */
+  overflow-x: auto; /* 이미지가 넘치면 스크롤이 나타나도록 설정합니다. */
+  -webkit-overflow-scrolling: touch; /* iOS에서 부드러운 스크롤을 활성화합니다. */
+  scrollbar-width: none; /* Firefox에서 스크롤 막대를 숨깁니다. */
+  -ms-overflow-style: none; /* IE/Edge에서 스크롤 막대를 숨깁니다. */
+  justify-content: center; /* 내부 요소를 수평으로 중앙 정렬합니다. */
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.image-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera에서 스크롤 막대를 숨깁니다. */
+}
+
+.image-container img {
+  max-width: 30%; /* 이미지가 부모 요소의 너비를 넘지 않도록 설정합니다. */
+  height: auto; /* 이미지의 세로 비율을 유지하면서 너비에 맞게 조절합니다. */
+  margin: 5px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.good {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.good.bord {
+    flex: 4; /* 보더를 넓게 만듭니다. */
+    margin-top:50px;
+    margin-left:250px;
+}
+/* 게시글 스타일링 */
+.post-container {
+    
+    display: flex;
+    justify-content: left; /* 가운데 정렬 */
+    align-items: left; /* 수직 가운데 정렬 */
+    height: 600px; /* 높이를 조정합니다. */
+    border: 2px solid #ccc; /* 테두리를 추가하고 색상을 변경합니다. */
+    border-radius: 10px; /* 테두리의 둥근 모서리를 추가합니다. */
+    padding-left: 20px; /* 왼쪽 여백을 추가합니다. */
+   
+}
+
+.post {
+    width: 45%; /* 너비를 조정합니다. */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* 클릭 가능한 요소로 설정합니다. */
+    transition: box-shadow 0.3s ease; /* box-shadow 전환 효과를 추가합니다. */
+}
+
+.post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* 호버 상태에서 그림자를 더 크게 표시합니다. */
+}
+
+.post h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post p {
+    margin: 8px 0;
+    
+}
+.good.bord h1 {
+    font-size: 24px; /* 미니 보드의 제목 폰트 크기를 24px로 설정합니다. */
+}
+
+
+.post .author {
+    font-style: italic;
+    color: #666;
+}
+.content-wrapper {
+    display: flex;
+    justify-content: space-between; /* 3열로 배치합니다. */
+}
+
+.map-container {
+    margin-top: 50px;
+    margin-right:100px;
+    
+    max-width: 1000px; /* 맵 박스의 최대 너비를 설정합니다. */
+}
+
+.map-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right:50px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    
+}
+.dropbtn img {	
+    width: 50px; /* 이미지의 너비를 조정합니다. */
+   
+    height: auto; /* 이미지의 높이를 자동으로 조정합니다. */
+   
+}
+
+
+
+
 

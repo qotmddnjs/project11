@@ -20,10 +20,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
-<body>
-	<header>
-		<div class="h-25 flex mx-auto items-center text-4xl">
-			   <div class="navbar">
+<header>
+    <div class="h-25 flex mx-auto items-center text-4xl">
+        <!-- 로고 이미지를 추가합니다 -->
+        <img class="logoimg" src="https://i.ibb.co/HVnbkcg/image.png" alt="image" border="0">
+
+        <div class="navbar">
             <a href="/">Movie Time</a>
             
             <div class="dropdown">
@@ -31,13 +33,15 @@
                     <img src="https://www.shutterstock.com/image-vector/simple-list-menu-icon-white-600w-1249309105.jpg"  class="background-hidden" alt="Your Image">
                 </button>
                 <div class="dropdown-content">
-                    <a href="#about">내정보</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a onclick="if(confirm('로그아웃 할래?') == false) return false;" class="hover:underline"
+							href="../member/doLogout">로그아웃</a>
+                    <a class="h-full px-3 flex items-center" href="/usr/member/myPage">내정보</a>
+                   <a class="hover:underline" href="../article/list?boardId=1&page=1">LIST</a>
                 </div>
             </div>
         </div>
     </div>
+</header>
 			
 
 			<%-- <a href="/"></a>

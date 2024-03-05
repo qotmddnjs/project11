@@ -4,7 +4,7 @@
 <%@ include file="../common/head.jspf"%>
 
 
-<section class="mt-8 text-xl px-4">
+<!-- <section class="mt-8 text-xl px-4">
 	<div class="mx-auto">
 		<form action="../member/doJoin" method="POST">
 			<table class="join-box table-box-1" border="1">
@@ -51,7 +51,17 @@
 			<button class="btn btn-outline" class="" type="button" onclick="history.back();">뒤로가기</button>
 		</div>
 	</div>
-</section>
+</section> -->
+<form class="joinform">
+  <h1><span>회원가입</h1>
+  <input placeholder="Username" type="text"/>
+  <input placeholder="Password" type="password"/>
+  <input placeholder="Password" type="password"/>
+  <input placeholder="Name" type="text"/>
+  <input placeholder=" birth date" type="text"/>
+  <input placeholder="email" type="text"/>
+  <button class="btn">join</button> 
+</form>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" href="styles.css"> <!-- CSS 파일을 연결합니다 -->

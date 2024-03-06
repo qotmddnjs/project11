@@ -36,7 +36,8 @@
                     <a onclick="if(confirm('로그아웃 할래?') == false) return false;" class="hover:underline"
 							href="../member/doLogout">로그아웃</a>
                     <a class="h-full px-3 flex items-center" href="/usr/member/myPage">내정보</a>
-                   <a class="hover:underline" href="../article/list?boardId=1&page=1">LIST</a>
+                   <a class="hover:underline" href="../article/list?boardId=1&page=1">내가 쓴 글</a>
+                    <a class="hover:underline" href="../article/list?boardId=1&page=1">결제내역</a>
                 </div>
             </div>
         </div>

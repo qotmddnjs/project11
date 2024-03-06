@@ -52,20 +52,25 @@
 		</div>
 	</div>
 </section> -->
-<form class="joinform">
-  <h1><span>회원가입</h1>
-  <input placeholder="Username" type="text"/>
-  <input placeholder="Password" type="password"/>
-  <input placeholder="Password" type="password"/>
-  <input placeholder="Name" type="text"/>
-  <input placeholder=" birth date" type="text"/>
-  <input placeholder="email" type="text"/>
-  <button class="btn">join</button> 
-</form>
+<div class="join-container">
+    <div class="joinimg"></div> <!-- 배경 이미지가 적용될 요소 -->
+    <div class="join-form-container">
+    <form action="../member/doJoin" method="POST">
+        <form class="joinform">
+            <h1><span>회원가입</span></h1>
+            <input placeholder="Username" type="text"name="loginId"/>
+            <input placeholder="Password" type="password""loginPw"/>
+            <input placeholder="Confirm Password" type="password" name="loginPw"/>
+            <input placeholder="Name" type="text"name="name"/>
+            <input placeholder="Birth Date" type="text"name="cellphoneNum"/>
+            <input placeholder="Email" type="text" name="email"/>
+            <input class="btn btn-outline btn-info" type="submit" value="가입" />
+        </form>
+    </div>
+</div>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
-    <link rel="stylesheet" href="styles.css"> <!-- CSS 파일을 연결합니다 -->
-
+<title>회원가입</title>
+<link rel="stylesheet" href="styles.css"> <!-- CSS 파일을 연결합니다 -->
 
 
 <%@ include file="../common/foot.jspf"%>

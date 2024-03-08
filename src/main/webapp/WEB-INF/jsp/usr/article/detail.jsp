@@ -6,7 +6,7 @@
 <!-- <iframe src="http://localhost:8081/usr/article/doIncreaseHitCountRd?id=372" frameborder="0"></iframe> -->
 
 <!-- 변수 -->
-<script>
+<<%-- script>
 	const params = {};
 	params.id = parseInt('${param.id}');
 	params.memberId = parseInt('${loginedMemberId}');
@@ -371,7 +371,7 @@ function doModifyReply(replyId) {
 						<td>${reply.badReactionPoint }</td>
 						<td>
 							<c:if test="${reply.userCanModify }">
-								<%-- 							href="../reply/modify?id=${reply.id }" --%>
+															href="../reply/modify?id=${reply.id }"
 								<button onclick="toggleModifybtn('${reply.id}');" id="modify-btn-${reply.id }" style="white-space: nowrap;"
 									class="btn btn-outline">수정</button>
 								<button onclick="doModifyReply('${reply.id}');" style="white-space: nowrap; display: none;"
@@ -392,6 +392,6 @@ function doModifyReply(replyId) {
 
 </section>
 
-
+ --%>
 
 <%@ include file="../common/foot.jspf"%>

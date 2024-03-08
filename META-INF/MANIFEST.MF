@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: demo
+Bundle-SymbolicName: demo
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Automatic-Module-Name: demo
+Export-Package: com.example.demo,
+ com.example.demo.controller,
+ com.example.demo.interceptor,
+ com.example.demo.repository,
+ com.example.demo.service,
+ com.example.demo.util,
+ com.example.demo.vo

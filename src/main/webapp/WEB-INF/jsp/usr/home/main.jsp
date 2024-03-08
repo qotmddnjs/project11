@@ -18,8 +18,9 @@
 <!-- 제이쿼리 불러오기 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <title>Slick Carousel Example</title>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 <body class="mainbody">
 
 
@@ -53,7 +54,7 @@
 					<!--  The last slide goes before the first one,
         because the slideshow shows the second slide on load by default. -->
 					<div class="slides__img" id=""
-						style="background-image: url('https://c.wallhere.com/photos/95/eb/movies_Clash_Of_The_Titans_movie_poster-229043.jpg!d')">
+						style="background-image: url('https://www.kobis.or.kr/kobis/business/main/main.do#none')">
 						<div class="slides__img__filter"></div>
 						<div class="slide__caption">
 							<h1 class="slide__caption__title">Fifth slide</h1>
@@ -116,7 +117,32 @@
 			</div>
 		</div>
 
-	</div>
+	 <script>
+    // 크롤링한 이미지 URL
+    var crawledImageUrl1 = "/common/mast/movie/2023/11/thumb_x289/thn_1ef55820eb494367b993f1110f747f15.jpeg";
+    var crawledImageUrl2 = "https://www.example.com/image2.jpg";
+    var crawledImageUrl3 = "https://www.example.com/image3.jpg";
+
+    // 이미지 URL을 배열에 추가
+    var imageUrls = [
+        crawledImageUrl1,
+        crawledImageUrl2,
+        crawledImageUrl3
+    ];
+
+    // 슬라이드 요소를 가져와서 이미지 URL을 설정
+    var slideElements = document.querySelectorAll(".slides__img");
+    for (var i = 0; i < slideElements.length; i++) {
+        slideElements[i].style.backgroundImage = "url('" + imageUrls[i] + "')";
+    }
+</script>
+ 
+
+
+
+
+
+
 	<script>
 		/**
 		 * @Author: Andrea Alba
@@ -283,113 +309,132 @@
 							slideShow(800, "swing");
 						});
 	</script>
-	<body class="mainbody2">
-<div class="wrapper">
-  <h2>Slick Carousel Example</h2>
-  <h3>추천영화</h3>
-  <div class="carousel">
-    
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <img src="https://image.tmdb.org/t/p/original/7zV8FTYofAORGm0Umgh1mNNCym8.jpg">
-        </div>
-        <div class="card-body">
-          <div class="card-content">
-            <div class="card-title">This is the First slider</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <img src="https://cdn.chungnamilbo.co.kr/news/photo/202208/672461_256408_3018.jpg">
-        </div>
-        <div class="card-body">
-          <div class="card-content">
-            <div class="card-title">This is the Second slider</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <img src="https://extmovie.com/files/attach/images/135/173/150/018/b3ec125b6209accb853019aefb6370bb.jpg">
-        </div>
-        <div class="card-body">
-          <div class="card-content">
-            <div class="card-title">This is the Third slider</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <img src="https://pbs.twimg.com/media/DkDXC8gU0AEGhpg.jpg:large">
-        </div>
-        <div class="card-body">
-          <div class="card-content">
-            <div class="card-title">This is the Fourth slider</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <img src="https://image-cdn.hypb.st/https%3A%2F%2Fkr.hypebeast.com%2Ffiles%2F2020%2F03%2Fmonster-hunter-milla-jovovich-tony-jaa-movie-poster-info-1.jpg?cbr=1&q=90">
-        </div>
-        <div class="card-body">
-          <div class="card-content">
-            <div class="card-title">This is the Fifth slider</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<body class="mainbody2">
+	<div class="wrapper">
+		<h2>Slick Carousel Example</h2>
+		<h3>추천영화</h3>
+		<div class="carousel">
+			<div>
+				<div class="card">
+					<div class="card-header">
+						<img src="">
+					</div>
+					<div class="card-body">
+						<div class="card-content">
+							<div class="card-title">This is the First slider</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="card-header">
+						<img src="">
+					</div>
+					<div class="card-body">
+						<div class="card-content">
+							<div class="card-title">This is the Second slider</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="card-header">
+						<img src="">
+					</div>
+					<div class="card-body">
+						<div class="card-content">
+							<div class="card-title">This is the Third slider</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="card-header">
+						<img src="">
+					</div>
+					<div class="card-body">
+						<div class="card-content">
+							<div class="card-title">This is the Fourth slider</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="card">
+					<div class="card-header">
+						<img src="">
+					</div>
+					<div class="card-body">
+						<div class="card-content">
+							<div class="card-title">This is the Fifth slider</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('.carousel').slick({
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      dots: true,
-      centerMode: true,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          }
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          }
-        }
-      ]
-    });
-  });
+	<script>
+    // 크롤링한 이미지 URL
+    var crawledImageUrl1 = "";
+    var crawledImageUrl2 = "";
+    var crawledImageUrl3 = "";
+    var crawledImageUrl4 = "";
+    var crawledImageUrl5 = "";
+
+    // 이미지 URL을 배열에 추가
+    var imageUrls = [
+        crawledImageUrl1,
+        crawledImageUrl2,
+        crawledImageUrl3,
+        crawledImageUrl4,
+        crawledImageUrl5
+    ];
+
+    // 카드 이미지를 크롤링한 이미지로 변경
+    var cardImages = document.querySelectorAll(".card-header img");
+    for (var i = 0; i < cardImages.length; i++) {
+        cardImages[i].src = imageUrls[i];
+    }
 </script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.carousel').slick({
+				speed : 500,
+				slidesToShow : 4,
+				slidesToScroll : 1,
+				autoplay : true,
+				autoplaySpeed : 2000,
+				dots : true,
+				centerMode : true,
+				responsive : [ {
+					breakpoint : 1024,
+					settings : {
+						slidesToShow : 3,
+						slidesToScroll : 1,
+					}
+				}, {
+					breakpoint : 800,
+					settings : {
+						slidesToShow : 2,
+						slidesToScroll : 2,
+					}
+				}, {
+					breakpoint : 480,
+					settings : {
+						slidesToShow : 1,
+						slidesToScroll : 1,
+					}
+				} ]
+			});
+		});
+	</script>
 </body>
 
 
@@ -397,23 +442,23 @@
 
 </body>
 <div class="board-container">
-    <div class="board">
-        <h2>인기 영화</h2>
-        <ul class="post-list">
-            <li class="post">게시글 1</li>
-            <li class="post">게시글 2</li>
-            <li class="post">게시글 3</li>
-        </ul>
-    </div>
+	<div class="board">
+		<h2>인기 영화</h2>
+		<ul class="post-list">
+			<li class="post">게시글 1</li>
+			<li class="post">게시글 2</li>
+			<li class="post">게시글 3</li>
+		</ul>
+	</div>
 
-    <div class="board">
-        <h2>인기 글</h2>
-        <ul class="post-list">
-            <li class="post">게시글 1</li>
-            <li class="post">게시글 2</li>
-            <li class="post">게시글 3</li>
-        </ul>
-    </div>
+	<div class="board">
+		<h2>인기 글</h2>
+		<ul class="post-list">
+			<li class="post">게시글 1</li>
+			<li class="post">게시글 2</li>
+			<li class="post">게시글 3</li>
+		</ul>
+	</div>
 </div>
 
 

@@ -24,17 +24,17 @@ public class crawlTest {
 
 		try {
 			// 크롤링할 웹 페이지 URL
-			String url = "https://www.melon.com/chart/index.htm";
+			String url = "https://www.kobis.or.kr/kobis/business/main/main.do#none";
 			// 웹 페이지 열기
 			driver.get(url);
 
 			// TOP 100 곡을 담고 있는 요소들 찾기
-			List<WebElement> elements = driver.findElements(By.cssSelector(".lst50, .lst100")); // TOP 50 과 TOP 100 곡을
+			List<WebElement> elements = driver.findElements(By.cssSelector(".ovf")); // TOP 50 과 TOP 100 곡을
 																								// 모두 포함하는 클래스 선택자
 			// 결과를 파일에 저장
 			saveToFile(elements, "output.txt");
 
-		} catch (Exception e) {
+		} catch (Exception e) {	
 			e.printStackTrace();
 		} finally {
 			// 웹 드라이버 종료
@@ -45,7 +45,7 @@ public class crawlTest {
 	private static void saveToFile(List<WebElement> elements, String fileName) throws IOException {
 		FileWriter writer = new FileWriter(fileName);
 		for (WebElement element : elements) {
-			String title = element.findElement(By.cssSelector(".ellipsis.rank01")).getText();
+			String title = element.findElement(By.cssSelector(".ovf_cont")).getText();
 			writer.write(title + "\n");
 		}
 		writer.close();

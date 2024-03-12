@@ -8,7 +8,7 @@ public class Movie {
 	private String content;
 	private String imageUrl; // 이미지 URL 추가
 
-	public Movie(String title,  String star, String learning_time, String content, String imageUrl) {
+	public Movie(String title,  String star, String learning_time) {
 		this.title = title;
 		
 		this.star = star;

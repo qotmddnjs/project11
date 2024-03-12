@@ -280,6 +280,7 @@
 							slideShow(800, "swing");
 						});
 	</script>
+	
 <body class="mainbody2">
 	<div class="wrapper">
 		<h2>Slick Carousel Example</h2>

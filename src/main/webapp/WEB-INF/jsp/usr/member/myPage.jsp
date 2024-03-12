@@ -79,30 +79,6 @@
 
 
   
-    <header>
-      <div class="content header-content">
-        <img class="udacity-logo" src="https://cameronwp.github.io/cpcom/static/udacity_logo.svg" alt="Udacity Logo">
-        <h1>Front-End Apprentice</h1>
-      </div>
-    </header>
-    <section class="hero">
-      <div class="content">
-        <img class="my-picture" src="https://pp.vk.me/c630031/v630031808/117cb/Q0Nb-Xg3uwc.jpg" alt="This is a picture of me">
-        <p class="iama">My name is...</p>
-        <p class="my-name my-info">Mikhail</p>
-        <p class="iama">I want to be...</p>
-        <p class="my-info">a front-end master</p>
-      </div>
-    </section>
-    <section class="about-me content">
-      <p class="iama">I live in...</p>
-      <p class="my-info">Kiev</p>
-      <p class="iama">My favorite way to work is...</p>
-      <p class="my-info">over the Paton bridge across Dnieper</p>
-      <p class="iama">In my free time, I like to...</p>
-      <p class="my-info">work on my nanodegree</p>
-    </section>
-  
- 
+   
 
 <%@ include file="../common/foot.jspf"%>

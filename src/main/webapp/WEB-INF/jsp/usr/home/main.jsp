@@ -33,102 +33,73 @@
 				<button type="submit">검색</button>
 			</form>
 		</div>
-		<div class="login-signup-links">
-			<!-- 로그인 링크 -->
-			<a class="hover:underline" href="../member/login" style="margin-right: 50px;">로그인</a>
+		<c:if test="${not rq.isLogined() }">
+			<div class="login-signup-links">
+				<!-- 로그인 링크 -->
+				<a class="hover:underline" href="../member/login" style="margin-right: 50px;">로그인</a>
 
-			<!-- 회원가입 링크 -->
-			<a class="hover:underline" href="../member/join" style="margin-right: 50px;">회원가입</a>
-		</div>
+				<!-- 회원가입 링크 -->
+				<a class="hover:underline" href="../member/join" style="margin-right: 50px;">회원가입</a>
+			</div>
+		</c:if>
+
 
 
 	</div>
 	<hr style="border-top: 3px solid white;" />
-	<div class="mainback">
-		<div class="container">
+<div class="mainback">
+    <div class="container">
 
-			<div class="slider">
+        <div class="slider">
 
-				<div class="slides">
+            <div class="slides">
 
-					<!--  The last slide goes before the first one,
+                <!--  The last slide goes before the first one,
         because the slideshow shows the second slide on load by default. -->
-					<div class="slides__img" id=""
-						style="background-image: url('https://www.kobis.or.kr/kobis/business/main/main.do#none')">
-						<div class="slides__img__filter"></div>
-						<div class="slide__caption">
-							<h1 class="slide__caption__title">Fifth slide</h1>
-							<h2 class="slide__caption__subtitle">This is the fifth slide.</h2>
-							<h3 class="slide__caption__text">Lorem ipsum dolor sit amet.</h3>
-						</div>
-					</div>
+                <div class="slides__img" id="">
+                    <div class="slides__img__filter"></div>
+                </div>
 
-					<div class="slides__img" id="" style="background-image: url('https://www.wallpaperuse.com/wallp/71-719932_m.jpg')">
-						<div class="slides__img__filter"></div>
-						<div class="slide__caption">
-							<h1 class="slide__caption__title">First slide</h1>
-							<h2 class="slide__caption__subtitle">This is the first slide.</h2>
-							<h3 class="slide__caption__text">Lorem ipsum dolor sit amet.</h3>
-						</div>
-					</div>
+                <div class="slides__img" id="">
+                    <div class="slides__img__filter"></div>
+                </div>
+            </div>
 
-					<div class="slides__img" id=""
-						style="background-image: url('https://c.wallhere.com/photos/fd/f4/movies_Clash_Of_The_Titans_Sam_Worthington_Perseus_Scorpioxs_movie_poster-229052.jpg!d')">
-						<div class="slides__img__filter"></div>
-						<div class="slide__caption">
-							<h1 class="slide__caption__title">Second slide</h1>
-							<h2 class="slide__caption__subtitle">This is the second slide.</h2>
-							<h3 class="slide__caption__text">Lorem ipsum dolor sit amet.</h3>
-						</div>
-					</div>
+            <div class="slides__img" id="">
+                <div class="slides__img__filter"></div>
+            </div>
 
-					<div class="slides__img" id=""
-						style="background-image: url('https://d2k5miyk6y5zf0.cloudfront.net/article/MYH/20220815/MYH20220815005400038.jpg')">
-						<div class="slides__img__filter"></div>
-						<div class="slide__caption">
-							<h1 class="slide__caption__title">Third slide</h1>
-							<h2 class="slide__caption__subtitle">This is the third slide.</h2>
-							<h3 class="slide__caption__text">Lorem ipsum dolor sit amet.</h3>
-						</div>
-					</div>
+            <div class="slides__img" id="">
+                <div class="slides__img__filter"></div>
+            </div>
 
-					<div class="slides__img" id=""
-						style="background-image: url('https://images-tv.adobe.com/mpcv3/2bb6da60-1ec0-4a1b-8a9e-7194d1e28abb/bff52858-91d3-41de-8da8-980f6f3c8a7b/c471c327b92047b7b264c8dc40c0db37_1549328091-1920x1080.jpg')">
-						<div class="slides__img__filter"></div>
-						<div class="slide__caption">
-							<h1 class="slide__caption__title">Fourth slide</h1>
-							<h2 class="slide__caption__subtitle">This is the fourth slide.</h2>
-							<h3 class="slide__caption__text">Lorem ipsum dolor sit amet.</h3>
-						</div>
-					</div>
+            <div class="slides__img" id="">
+                <div class="slides__img__filter"></div>
+            </div>
 
-				</div>
+        </div>
 
-			</div>
-			<!-- / slider -->
+    </div>
+</div>
 
-			<!-- #Controls -->
-			<a class="control fas fa-chevron-left" id="prev"></a> <a class="control fas fa-chevron-right" id="next"></a>
+<!-- #Controls -->
+<a class="control fas fa-chevron-left" id="prev"></a> <a class="control fas fa-chevron-right" id="next"></a>
 
-			<!-- #Position dots -->
-			<div class="dots">
-				<span class="dots__single" id=""></span> <span class="dots__single" id=""></span> <span class="dots__single" id=""></span>
-				<span class="dots__single" id=""></span> <span class="dots__single" id=""></span>
-			</div>
-		</div>
+<!-- #Position dots -->
+<div class="dots">
+    <span class="dots__single" id=""></span> <span class="dots__single" id=""></span> <span class="dots__single" id=""></span>
+    <span class="dots__single" id=""></span> <span class="dots__single" id=""></span>
+</div>
 
-	 <script>
+<script>
     // 크롤링한 이미지 URL
-    var crawledImageUrl1 = "/common/mast/movie/2023/11/thumb_x289/thn_1ef55820eb494367b993f1110f747f15.jpeg";
-    var crawledImageUrl2 = "https://www.example.com/image2.jpg";
-    var crawledImageUrl3 = "https://www.example.com/image3.jpg";
+    var crawledImageUrl1 = "";
+    var crawledImageUrl2 = "";
+    var crawledImageUrl3 = "";
+    var crawledImageUrl4 = "";
 
     // 이미지 URL을 배열에 추가
-    var imageUrls = [
-        crawledImageUrl1,
-        crawledImageUrl2,
-        crawledImageUrl3
-    ];
+    var imageUrls = [crawledImageUrl1, crawledImageUrl2, crawledImageUrl3, crawledImageUrl4];
 
     // 슬라이드 요소를 가져와서 이미지 URL을 설정
     var slideElements = document.querySelectorAll(".slides__img");
@@ -136,7 +107,7 @@
         slideElements[i].style.backgroundImage = "url('" + imageUrls[i] + "')";
     }
 </script>
- 
+
 
 
 
@@ -320,9 +291,7 @@
 						<img src="">
 					</div>
 					<div class="card-body">
-						<div class="card-content">
-							<div class="card-title">This is the First slider</div>
-						</div>
+						<div class="card-content"></div>
 					</div>
 				</div>
 			</div>
@@ -332,9 +301,7 @@
 						<img src="">
 					</div>
 					<div class="card-body">
-						<div class="card-content">
-							<div class="card-title">This is the Second slider</div>
-						</div>
+						<div class="card-content"></div>
 					</div>
 				</div>
 			</div>
@@ -344,9 +311,7 @@
 						<img src="">
 					</div>
 					<div class="card-body">
-						<div class="card-content">
-							<div class="card-title">This is the Third slider</div>
-						</div>
+						<div class="card-content"></div>
 					</div>
 				</div>
 			</div>
@@ -356,9 +321,7 @@
 						<img src="">
 					</div>
 					<div class="card-body">
-						<div class="card-content">
-							<div class="card-title">This is the Fourth slider</div>
-						</div>
+						<div class="card-content"></div>
 					</div>
 				</div>
 			</div>
@@ -368,9 +331,7 @@
 						<img src="">
 					</div>
 					<div class="card-body">
-						<div class="card-content">
-							<div class="card-title">This is the Fifth slider</div>
-						</div>
+						<div class="card-content"></div>
 					</div>
 				</div>
 			</div>
@@ -378,28 +339,23 @@
 	</div>
 
 	<script>
-    // 크롤링한 이미지 URL
-    var crawledImageUrl1 = "";
-    var crawledImageUrl2 = "";
-    var crawledImageUrl3 = "";
-    var crawledImageUrl4 = "";
-    var crawledImageUrl5 = "";
+		// 크롤링한 이미지 URL
+		var crawledImageUrl1 = "";
+		var crawledImageUrl2 = "";
+		var crawledImageUrl3 = "";
+		var crawledImageUrl4 = "";
+		var crawledImageUrl5 = "";
 
-    // 이미지 URL을 배열에 추가
-    var imageUrls = [
-        crawledImageUrl1,
-        crawledImageUrl2,
-        crawledImageUrl3,
-        crawledImageUrl4,
-        crawledImageUrl5
-    ];
+		// 이미지 URL을 배열에 추가
+		var imageUrls = [ crawledImageUrl1, crawledImageUrl2, crawledImageUrl3,
+				crawledImageUrl4, crawledImageUrl5 ];
 
-    // 카드 이미지를 크롤링한 이미지로 변경
-    var cardImages = document.querySelectorAll(".card-header img");
-    for (var i = 0; i < cardImages.length; i++) {
-        cardImages[i].src = imageUrls[i];
-    }
-</script>
+		// 카드 이미지를 크롤링한 이미지로 변경
+		var cardImages = document.querySelectorAll(".card-header img");
+		for (var i = 0; i < cardImages.length; i++) {
+			cardImages[i].src = imageUrls[i];
+		}
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

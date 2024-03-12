@@ -480,9 +480,9 @@ h6 {
 	font-size: 1.2em; /* 버튼의 글꼴 크기를 설정합니다. */
 }
 /*마이페이지*/
-.mupageba {
+/* .mupageba {
 	position: relative;
-	height: 100vh; /* 화면 전체 높이로 설정 */
+	height: 100vh; 화면 전체 높이로 설정
 	margin-top:-50px;
 }
 
@@ -495,7 +495,7 @@ h6 {
 
 .mupageba .mupageba2 {
 	position: absolute;
-	left: 130px; /* 첫 번째 바의 너비와 동일한 값으로 설정 */
+	left: 130px; 첫 번째 바의 너비와 동일한 값으로 설정
 	width: 350px;
 	height: 100%;
 	background-color: #b0b0ff;
@@ -511,7 +511,7 @@ h6 {
 .mupageba2 a {
 	color: white;
 	font-size: 24px;
-}
+} */
 
 .information {
 	position: absolute;

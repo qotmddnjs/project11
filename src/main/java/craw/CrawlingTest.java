@@ -24,11 +24,11 @@ public class CrawlingTest {
         ArrayList<Movie> movie_data = new ArrayList<>();
 
         try {
-            WebElement movie_container = driver.findElement(By.cssSelector("div#cont_rank")); // 변경된 클래스 이름 사용
-            List<WebElement> movie_links = movie_container.findElements(By.cssSelector(".info_ovf > a")); // 변경된 클래스 이름 사용
+            WebElement movie_container = driver.findElement(By.cssSelector("#realBoxOffice")); // 변경된 클래스 이름 사용
+            List<WebElement> movie_links = movie_container.findElements(By.cssSelector("div.ovf > a")); // 변경된 클래스 이름 사용
 
             for (int i = 0; i < movie_links.size(); i++) {
-                String link = movie_links.get(i).getAttribute("herf");
+                String link = movie_links.get(i).getAttribute("href");
                 driver.get(link);
 
                 // 영화 정보 추출

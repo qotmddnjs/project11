@@ -8,11 +8,10 @@ public class Movie {
 	private String content;
 	private String imageUrl; // 이미지 URL 추가
 
-	public Movie(String title,  String star, String learning_time) {
+	public Movie(String title,  String content, String imageUrl) {
 		this.title = title;
 		
-		this.star = star;
-		this.learning_time = learning_time;
+		
 		this.content = content;
 		this.imageUrl = imageUrl; // 이미지 URL 설정
 	}

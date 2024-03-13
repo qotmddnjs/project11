@@ -287,77 +287,92 @@
 		<h2>Slick Carousel Example</h2>
 		<h3>추천영화</h3>
 		<div class="carousel">
-			<div>
-				<div class="card">
-					<div class="card-header">
-						<img src="">
-					</div>
-					<div class="card-body">
-						<div class="card-content"></div>
-					</div>
+			<div class="card">
+				<div class="card-header">
+					<img src="">
+				</div>
+				<div class="card-body">
+					<div class="card-content"></div>
 				</div>
 			</div>
-			<div>
-				<div class="card">
-					<div class="card-header">
-						<img src="">
-					</div>
-					<div class="card-body">
-						<div class="card-content"></div>
-					</div>
+			<div class="card">
+				<div class="card-header">
+					<img src="">
+				</div>
+				<div class="card-body">
+					<div class="card-content"></div>
+				</div>
+			</div><div class="card">
+				<div class="card-header">
+					<img src="">
+				</div>
+				<div class="card-body">
+					<div class="card-content"></div>
+				</div>
+			</div><div class="card">
+				<div class="card-header">
+					<img src="">
+				</div>
+				<div class="card-body">
+					<div class="card-content"></div>
+				</div>
+			</div><div class="card">
+				<div class="card-header">
+					<img src="">
+				</div>
+				<div class="card-body">
+					<div class="card-content"></div>
 				</div>
 			</div>
-			<div>
-				<div class="card">
-					<div class="card-header">
-						<img src="">
-					</div>
-					<div class="card-body">
-						<div class="card-content"></div>
-					</div>
+			<div class="card">
+				<div class="card-header">
+					<img src="">
+				</div>
+				<div class="card-body">
+					<div class="card-content"></div>
 				</div>
 			</div>
-			<div>
-				<div class="card">
-					<div class="card-header">
-						<img src="">
-					</div>
-					<div class="card-body">
-						<div class="card-content"></div>
-					</div>
+			<div class="card">
+				<div class="card-header">
+					<img src="">
 				</div>
-			</div>
-			<div>
-				<div class="card">
-					<div class="card-header">
-						<img src="">
-					</div>
-					<div class="card-body">
-						<div class="card-content"></div>
-					</div>
+				<div class="card-body">
+					<div class="card-content"></div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
 
 	<script>
-		// 크롤링한 이미지 URL
-		var crawledImageUrl1 = "";
-		var crawledImageUrl2 = "";
-		var crawledImageUrl3 = "";
-		var crawledImageUrl4 = "";
-		var crawledImageUrl5 = "";
+		// 크롤링한 이미지 URL 배열
+		var imageUrls = [
+			"https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88012/88012_320.jpg",
+			"https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88050/88050_320.jpg",
+			"https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88030/88030_320.jpg",
+			"https://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87985/87985_320.jpg",
+			"https://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87979/87979_320.jpg",
+			"https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88028/88028_320.jpg",
+			"https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88047/88047_320.jpg"
+		];
 
-		// 이미지 URL을 배열에 추가
-		var imageUrls = [ crawledImageUrl1, crawledImageUrl2, crawledImageUrl3,
-				crawledImageUrl4, crawledImageUrl5 ];
+		// 카드 요소 가져오기
+		var cardElements = document.querySelectorAll(".card");
 
-		// 카드 이미지를 크롤링한 이미지로 변경
-		var cardImages = document.querySelectorAll(".card-header img");
-		for (var i = 0; i < cardImages.length; i++) {
-			cardImages[i].src = imageUrls[i];
+		// 이미지 URL을 카드에 설정
+		for (var i = 0; i < cardElements.length; i++) {
+			if (i < imageUrls.length) {
+				var imgElement = cardElements[i].querySelector("img");
+				imgElement.src = imageUrls[i];
+			} else {
+				console.error("이미지 URL이 부족합니다.");
+			}
 		}
 	</script>
+</body>
+
+
+
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>

@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.util.crawlTest;
+import com.example.demo.util.Crawlling;
 
 @Controller
 public class UsrHomeController {
@@ -23,7 +23,7 @@ public class UsrHomeController {
 	@RequestMapping("/usr/crawl")
 	public String doCrawl() {
 
-		crawlTest.crawl();
+		Crawlling.sample();
 
 		return "redirect:/usr/home/main";
 	}

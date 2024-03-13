@@ -47,66 +47,68 @@
 
 	</div>
 	<hr style="border-top: 3px solid white;" />
-<div class="mainback">
-    <div class="container">
+	<div class="mainback">
+		<div class="container">
 
-        <div class="slider">
+			<div class="slider">
 
-            <div class="slides">
+				<div class="slides">
 
-                <!--  The last slide goes before the first one,
+					<!--  The last slide goes before the first one,
         because the slideshow shows the second slide on load by default. -->
-                <div class="slides__img" id="">
-                    <div class="slides__img__filter"></div>
-                </div>
+					<div class="slides__img" id="slide1">
+						<div class="slides__img__filter"></div>
+					</div>
 
-                <div class="slides__img" id="">
-                    <div class="slides__img__filter"></div>
-                </div>
-            </div>
+					<div class="slides__img" id="slide2">
+						<div class="slides__img__filter"></div>
+					</div>
 
-            <div class="slides__img" id="">
-                <div class="slides__img__filter"></div>
-            </div>
+					<div class="slides__img" id="slide3">
+						<div class="slides__img__filter"></div>
+					</div>
 
-            <div class="slides__img" id="">
-                <div class="slides__img__filter"></div>
-            </div>
+					<div class="slides__img" id="slide4">
+						<div class="slides__img__filter"></div>
+					</div>
 
-            <div class="slides__img" id="">
-                <div class="slides__img__filter"></div>
-            </div>
+					<div class="slides__img" id="slide5">
+						<div class="slides__img__filter"></div>
+					</div>
 
-        </div>
+				</div>
 
-    </div>
-</div>
+			</div>
 
-<!-- #Controls -->
-<a class="control fas fa-chevron-left" id="prev"></a> <a class="control fas fa-chevron-right" id="next"></a>
+		</div>
+	</div>
 
-<!-- #Position dots -->
-<div class="dots">
-    <span class="dots__single" id=""></span> <span class="dots__single" id=""></span> <span class="dots__single" id=""></span>
-    <span class="dots__single" id=""></span> <span class="dots__single" id=""></span>
-</div>
+	<!-- #Controls -->
+	<a class="control fas fa-chevron-left" id="prev"></a>
+	<a class="control fas fa-chevron-right" id="next"></a>
 
-<script>
-    // 크롤링한 이미지 URL
-    var crawledImageUrl1 = "";
-    var crawledImageUrl2 = "";
-    var crawledImageUrl3 = "";
-    var crawledImageUrl4 = "";
+	<!-- #Position dots -->
+	<div class="dots">
+		<span class="dots__single" id="dot1"></span> <span class="dots__single" id="dot2"></span> <span class="dots__single"
+			id="dot3"></span> <span class="dots__single" id="dot4"></span> <span class="dots__single" id="dot5"></span>
+	</div>
 
-    // 이미지 URL을 배열에 추가
-    var imageUrls = [crawledImageUrl1, crawledImageUrl2, crawledImageUrl3, crawledImageUrl4];
+	<script>
+		// 크롤링한 이미지 URL 배열
+		var imageUrls = [ "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88012/88012_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88050/88050_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88030/88030_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88054/88054_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88052/88052_320.jpg" ];
 
-    // 슬라이드 요소를 가져와서 이미지 URL을 설정
-    var slideElements = document.querySelectorAll(".slides__img");
-    for (var i = 0; i < slideElements.length; i++) {
-        slideElements[i].style.backgroundImage = "url('" + imageUrls[i] + "')";
-    }
-</script>
+		// 슬라이드 요소를 가져와서 이미지 URL을 설정
+		var slideElements = document.querySelectorAll(".slides__img");
+		for (var i = 0; i < slideElements.length; i++) {
+			if (i < imageUrls.length) {
+				slideElements[i].style.backgroundImage = "url('" + imageUrls[i]
+						+ "')";
+			} else {
+				console.error("이미지 URL이 부족합니다.");
+			}
+		}
+	</script>
+
 
 
 
@@ -280,7 +282,6 @@
 							slideShow(800, "swing");
 						});
 	</script>
-	
 <body class="mainbody2">
 	<div class="wrapper">
 		<h2>Slick Carousel Example</h2>

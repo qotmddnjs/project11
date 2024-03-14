@@ -1,6 +1,6 @@
 // CgvVO.java
 
-package com.example.demo.util;
+package com.example.demo.vo;
 
 public class CgvVO {
     private String title;

@@ -1,7 +1,10 @@
 server:
   port: 8082
-  
 spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
   mvc:
     view:
       prefix: /WEB-INF/jsp/
@@ -14,3 +17,5 @@ spring:
     password: 
 mybatis:
   type-aliases-package: com.example.demo.vo
+custom:
+  genFileDirPath: C:\work\sts-4.19.1.RELEASE-workspace2\demo\images

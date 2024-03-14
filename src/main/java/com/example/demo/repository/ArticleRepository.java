@@ -202,4 +202,6 @@ public interface ArticleRepository {
 			""")
 	public int getBadRP(int relId);
 
+	public int getCurrentArticleId();
+
 }

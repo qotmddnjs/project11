@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.util.Crawlling;
+import com.example.demo.util.MovieCrawl;
 
 @Controller
 public class UsrHomeController {
@@ -23,8 +24,16 @@ public class UsrHomeController {
 	@RequestMapping("/usr/crawl")
 	public String doCrawl() {
 
-		Crawlling.sample();
+	Crawlling.sample();
+//		MovieCrawl.crawl();
 
 		return "redirect:/usr/home/main";
 	}
+//	@RequestMapping("/usr/crawll")
+//	public String doCrawll() {
+//
+//		MovieCrawl.main();
+//
+//		return "redirect:/usr/home/main";
+//	}
 }

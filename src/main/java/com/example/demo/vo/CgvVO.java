@@ -2,11 +2,15 @@
 
 package com.example.demo.vo;
 
+import org.jsoup.nodes.Document;
+
+@SuppressWarnings("unused")
 public class CgvVO {
     private String title;
     private String image;
     private String genre;
     private int bookcnt;
+	private String detail;
 
     public String getGenre() {
         return genre;
@@ -39,4 +43,13 @@ public class CgvVO {
     public void setBookcnt(int bookcnt) {
         this.bookcnt = bookcnt;
     }
+
+    public String getdetail() {
+        return detail;
+    }
+
+	public void setdetail(String detail) {
+		this.detail = detail;
+		
+	}
 }

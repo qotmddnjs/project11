@@ -85,9 +85,9 @@ public class UsrArticleController {
 	}
 
 	@RequestMapping("/usr/article/detail")
-	public String showDetail(HttpServletRequest req, Model model, int id) {
+	public String showDetail(HttpServletRequest req, Model model, Integer id) {
 		Rq rq = (Rq) req.getAttribute("rq");
-
+		
 		Article article = articleService.getForPrintArticle(rq.getLoginedMemberId(), id);
 		ResultData usersReactionRd = reactionPointService.usersReaction(rq.getLoginedMemberId(), "article", id);
 

@@ -43,24 +43,25 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="article" items="${articles }">
-				<tr class="hover">
+	<c:forEach var="article" items="${articles}">
+    <tr class="hover">
+        <td>${article.id}</td>
+        <td>${article.regDate.substring(0,10)}</td>
+        <td>
+            <a href="detail?id=${article.id}&index=${loop.index}">
+                ${article.title}
+                <c:if test="${article.extra__repliesCnt > 0}">
+                    <span style="color: red;">[${article.extra__repliesCnt}]</span>
+                </c:if>
+            </a>
+        </td>
+        <td>${article.extra__writer}</td>
+        <td>${article.hitCount}</td>
+        <td>${article.goodReactionPoint}</td>
+        <td>${article.badReactionPoint}</td>
+    </tr>
+</c:forEach>
 
-					<td>${article.id }</td>
-					<td>${article.regDate.substring(0,10) }</td>
-					<td>
-						<a href="detail?id=${article.id }">${article.title }
-							<c:if test="${article.extra__repliesCnt > 0 }">
-								<span style="color: red;">[${article.extra__repliesCnt }]</span>
-							</c:if>
-						</a>
-					</td>
-					<td>${article.extra__writer }</td>
-					<td>${article.hitCount }</td>
-					<td>${article.goodReactionPoint }</td>
-					<td>${article.badReactionPoint }</td>
-				</tr>
-			</c:forEach>
 		</tbody>
 	</table>
 	</div>

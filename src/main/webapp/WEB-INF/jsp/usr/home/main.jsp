@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="MAIN"></c:set>
 <%@ include file="../common/head.jspf"%>
+
 <meta charset="UTF-8">
 <title>${pageTitle }</title>
 <link rel="stylesheet" href="/resource/common.css" />
@@ -282,102 +283,118 @@
 							slideShow(800, "swing");
 						});
 	</script>
+<%@ page import="java.util.List" %> <!-- List 클래스 import -->
+<%@ page import="com.example.demo.util.CgvDAO" %>
+<%@ page import="com.example.demo.vo.CgvVO" %>
+<%@ page import="com.example.demo.util.CgvService" %>
+
+<html>
+<head>
+    <title>Movie List</title>
+</head>
 <body class="mainbody2">
-	<div class="wrapper">
-		<h2>Slick Carousel Example</h2>
-		<h3>추천영화</h3>
-		<div class="carousel">
-			<div class="card">
-				<div class="card-header">
-					<img src="">
-				</div>
-				<div class="card-body">
-					<div class="card-content"></div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">
-					<img src="">
-				</div>
-				<div class="card-body">
-					<div class="card-content"></div>
-				</div>
-			</div><div class="card">
-				<div class="card-header">
-					<img src="">
-				</div>
-				<div class="card-body">
-					<div class="card-content"></div>
-				</div>
-			</div><div class="card">
-				<div class="card-header">
-					<img src="">
-				</div>
-				<div class="card-body">
-					<div class="card-content"></div>
-				</div>
-			</div><div class="card">
-				<div class="card-header">
-					<img src="">
-				</div>
-				<div class="card-body">
-					<div class="card-content"></div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">
-					<img src="">
-				</div>
-				<div class="card-body">
-					<div class="card-content"></div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-header">
-					<img src="">
-				</div>
-				<div class="card-body">
-					<div class="card-content"></div>
-				</div>
-				
-			</div>
-		</div>
-	</div>
+    <div class="wrapper">
+        <h2>Slick Carousel Example</h2>
+        <h3>추천영화</h3>
+        <div class="carousel">
+            <div class="card">
+                <div class="card-header">
+                    <img src="">
+                </div>
+                <div class="card-body">
+                    <div class="card-content"></div>
+                </div>
+            </div> <div class="card">
+                <div class="card-header">
+                    <img src="">
+                </div>
+                <div class="card-body">
+                    <div class="card-content"></div>
+                </div>
+            </div> <div class="card">
+                <div class="card-header">
+                    <img src="">
+                </div>
+                <div class="card-body">
+                    <div class="card-content"></div>
+                </div>
+            </div> <div class="card">
+                <div class="card-header">
+                    <img src="">
+                </div>
+                <div class="card-body">
+                    <div class="card-content"></div>
+                </div>
+            </div> <div class="card">
+                <div class="card-header">
+                    <img src="">
+                </div>
+                <div class="card-body">
+                    <div class="card-content"></div>
+                </div>
+            </div>
+             <div class="card">
+                <div class="card-header">
+                    <img src="">
+                </div>
+                <div class="card-body">
+                    <div class="card-content"></div>
+                </div>
+            </div>
+            
+            <!-- 여러 개의 카드 중간 생략 -->
+        </div>
+    </div>
 
-	<script>
-    // 크롤링한 이미지 URL 배열
-    var imageUrls = [
-        "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88012/88012_320.jpg",
-        "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88050/88050_320.jpg",
-        "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88030/88030_320.jpg",
-        "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87985/87985_320.jpg",
-        "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87979/87979_320.jpg",
-        "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88028/88028_320.jpg",
-        "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88047/88047_320.jpg"
-    ];
+    <script>
+        // 영화 목록을 가져와서 JavaScript 배열로 변환
+        var movieList = [
+            <% List<CgvVO> movies = new CgvDAO().getMovies(); %>
+            <% for (int i = 0; i < movies.size(); i++) { %>
+                <% CgvVO movie = movies.get(i); %>
+                {
+                    title: "<%= movie.getTitle() %>",
+                    image: "<%= movie.getImage() %>",
+                    genre: "<%= movie.getGenre() %>"
+                }
+                <% if (i < movies.size() - 1) { %>,<% } %>
+            <% } %>
+        ];
 
-    // 카드 요소 가져오기
-    var cardElements = document.querySelectorAll(".card");
+        // 이미지 URL 배열 초기화
+        var imageUrls = [];
 
-    // 이미지 URL을 카드에 설정하고 클릭 이벤트 리스너 추가
-    for (var i = 0; i < cardElements.length; i++) {
-        if (i < imageUrls.length) {
-            var imgElement = cardElements[i].querySelector("img");
-            imgElement.src = imageUrls[i];
-            cardElements[i].addEventListener("click", handleCardClick); // 클릭 이벤트 리스너 추가
-            cardElements[i].setAttribute("data-index", i); // 각 카드에 인덱스 속성 추가
-        } else {
-            console.error("이미지 URL이 부족합니다.");
+        // 영화 목록의 이미지 URL을 imageUrls 배열에 추가
+        for (var i = 0; i < movieList.length; i++) {
+            imageUrls.push(movieList[i].image);
         }
-    }
 
-    // 카드 클릭 이벤트 핸들러
-    function handleCardClick(event) {
-        var index = event.currentTarget.dataset.index; // 클릭한 카드의 인덱스 가져오기
-        // "detail.jsp" 페이지로 이동
-        window.location.href = "detail.jsp?index=" + index;
-    }
-</script>
+        // 카드 요소 가져오기
+        var cardElements = document.querySelectorAll(".card");
+
+        // 이미지 URL을 카드에 설정하고 클릭 이벤트 리스너 추가
+        for (var i = 0; i < cardElements.length; i++) {
+            if (i < imageUrls.length) {
+                var imgElement = cardElements[i].querySelector("img");
+                imgElement.src = imageUrls[i];
+                cardElements[i].addEventListener("click", handleCardClick); // 클릭 이벤트 리스너 추가
+                cardElements[i].setAttribute("data-index", i); // 각 카드에 인덱스 속성 추가
+            } else {
+                console.error("이미지 URL이 부족합니다.");
+            }
+        }
+
+        // 카드 클릭 이벤트 핸들러
+       function handleCardClick(event) {
+    var index = event.currentTarget.getAttribute("data-index"); // 클릭한 카드의 인덱스 가져오기
+    // "detail.jsp" 페이지로 이동
+            window.location.href = "../article/detail?index=" + index;
+        }
+    </script>
+</body>
+</html>
+
+
 </body>
 
 
@@ -516,7 +533,7 @@
 </script>
 
 
-<link rel="stylesheet" type="text/css" href="/kobis/web/comm/commcss/autoLogout.css">
+<!-- <link rel="stylesheet" type="text/css" href="/kobis/web/comm/commcss/autoLogout.css">
 
 
 
@@ -531,7 +548,7 @@
 				<input type="hidden" id="showDt" name="showDt" value="20240314" autocomplete="off">
 			</form>
             <div class="schedule">
-            	<div class="fl step1 on"><!-- 해당 단계일 때 .on 추가 -->
+            	<div class="fl step1 on">해당 단계일 때 .on 추가
                 	<strong>광역</strong>
                     <ul>
                     	
@@ -620,7 +637,7 @@
 							<label for="step1_17">세종시</label>
 							</li>
 						
-                        <!-- <li><input type="radio" name="step1" id="step1_1" /><label for="step1_1">서울시</label></li>
+                        <li><input type="radio" name="step1" id="step1_1" /><label for="step1_1">서울시</label></li>
                         <li><input type="radio" name="step1" id="step1_2" /><label for="step1_2">경기도</label></li>
                         <li><input type="radio" name="step1" id="step1_3" /><label for="step1_3">강원도</label></li>
                         <li><input type="radio" name="step1" id="step1_4" /><label for="step1_4">충청북도</label></li>
@@ -636,12 +653,12 @@
                         <li><input type="radio" name="step1" id="step1_14" /><label for="step1_14">울산시</label></li>
                         <li><input type="radio" name="step1" id="step1_15" /><label for="step1_15">인천시</label></li>
                         <li><input type="radio" name="step1" id="step1_16" /><label for="step1_16">광주시</label></li>
-                        <li><input type="radio" name="step1" id="step1_17" /><label for="step1_17">세종시</label></li> -->
+                        <li><input type="radio" name="step1" id="step1_17" /><label for="step1_17">세종시</label></li>
                     </ul>
                 </div>
-                <div class="fl step2 on"><!-- 해당 단계일 때 .on 추가 -->
+                <div class="fl step2 on">해당 단계일 때 .on 추가
                 	<strong>기초</strong>
-                    <!-- <ul>
+                    <ul>
                         <li><input type="radio" name="step2" id="step2_1" /><label for="step2_1">강남구</label></li>
                         <li><input type="radio" name="step2" id="step2_2" /><label for="step2_2">강동구</label></li>
                         <li><input type="radio" name="step2" id="step2_3" /><label for="step2_3">강북구</label></li>
@@ -667,14 +684,14 @@
                         <li><input type="radio" name="step2" id="step2_23" /><label for="step2_23">종로구</label></li>
                         <li><input type="radio" name="step2" id="step2_24" /><label for="step2_24">중구</label></li>
                         <li><input type="radio" name="step2" id="step2_25" /><label for="step2_25">중랑구</label></li>
-                    </ul> -->
+                    </ul>
                     <ul id="sBasareaCd"><li basareacd="010600101" onclick="selectedBasarea($(this), '010600101'); " class="current"><input type="radio" name="step2" id="step2_1"><label for="step2_1">강남구</label></li><li basareacd="010600102" onclick="selectedBasarea($(this), '010600102'); "><input type="radio" name="step2" id="step2_2"><label for="step2_2">강동구</label></li><li basareacd="010600103" onclick="selectedBasarea($(this), '010600103'); "><input type="radio" name="step2" id="step2_3"><label for="step2_3">강북구</label></li><li basareacd="010600104" onclick="selectedBasarea($(this), '010600104'); "><input type="radio" name="step2" id="step2_4"><label for="step2_4">강서구</label></li><li basareacd="010600105" onclick="selectedBasarea($(this), '010600105'); "><input type="radio" name="step2" id="step2_5"><label for="step2_5">관악구</label></li><li basareacd="010600106" onclick="selectedBasarea($(this), '010600106'); "><input type="radio" name="step2" id="step2_6"><label for="step2_6">광진구</label></li><li basareacd="010600107" onclick="selectedBasarea($(this), '010600107'); "><input type="radio" name="step2" id="step2_7"><label for="step2_7">구로구</label></li><li basareacd="010600108" onclick="selectedBasarea($(this), '010600108'); "><input type="radio" name="step2" id="step2_8"><label for="step2_8">금천구</label></li><li basareacd="010600109" onclick="selectedBasarea($(this), '010600109'); "><input type="radio" name="step2" id="step2_9"><label for="step2_9">노원구</label></li><li basareacd="010600110" onclick="selectedBasarea($(this), '010600110'); "><input type="radio" name="step2" id="step2_10"><label for="step2_10">도봉구</label></li><li basareacd="010600111" onclick="selectedBasarea($(this), '010600111'); "><input type="radio" name="step2" id="step2_11"><label for="step2_11">동대문구</label></li><li basareacd="010600112" onclick="selectedBasarea($(this), '010600112'); "><input type="radio" name="step2" id="step2_12"><label for="step2_12">동작구</label></li><li basareacd="010600113" onclick="selectedBasarea($(this), '010600113'); "><input type="radio" name="step2" id="step2_13"><label for="step2_13">마포구</label></li><li basareacd="010600114" onclick="selectedBasarea($(this), '010600114'); "><input type="radio" name="step2" id="step2_14"><label for="step2_14">서대문구</label></li><li basareacd="010600115" onclick="selectedBasarea($(this), '010600115'); "><input type="radio" name="step2" id="step2_15"><label for="step2_15">서초구</label></li><li basareacd="010600116" onclick="selectedBasarea($(this), '010600116'); "><input type="radio" name="step2" id="step2_16"><label for="step2_16">성동구</label></li><li basareacd="010600117" onclick="selectedBasarea($(this), '010600117'); "><input type="radio" name="step2" id="step2_17"><label for="step2_17">성북구</label></li><li basareacd="010600118" onclick="selectedBasarea($(this), '010600118'); "><input type="radio" name="step2" id="step2_18"><label for="step2_18">송파구</label></li><li basareacd="010600119" onclick="selectedBasarea($(this), '010600119'); "><input type="radio" name="step2" id="step2_19"><label for="step2_19">양천구</label></li><li basareacd="010600120" onclick="selectedBasarea($(this), '010600120'); "><input type="radio" name="step2" id="step2_20"><label for="step2_20">영등포구</label></li><li basareacd="010600121" onclick="selectedBasarea($(this), '010600121'); "><input type="radio" name="step2" id="step2_21"><label for="step2_21">용산구</label></li><li basareacd="010600122" onclick="selectedBasarea($(this), '010600122'); "><input type="radio" name="step2" id="step2_22"><label for="step2_22">은평구</label></li><li basareacd="010600123" onclick="selectedBasarea($(this), '010600123'); "><input type="radio" name="step2" id="step2_23"><label for="step2_23">종로구</label></li><li basareacd="010600124" onclick="selectedBasarea($(this), '010600124'); "><input type="radio" name="step2" id="step2_24"><label for="step2_24">중구</label></li><li basareacd="010600125" onclick="selectedBasarea($(this), '010600125'); "><input type="radio" name="step2" id="step2_25"><label for="step2_25">중랑구</label></li></ul>
                 </div>
-                <div class="fl step3 on"><!-- 해당 단계일 때 .on 추가 -->
+                <div class="fl step3 on">해당 단계일 때 .on 추가
                 	<strong>영화상영관</strong>
                     <ul id="sTheaCd"><li theacd="001123" onclick="selectedTheater($(this), '001123'); " class="current"><input type="radio" name="step3" id="step3_1"><label for="step3_1">CGV 강남</label></li><li theacd="001111" onclick="selectedTheater($(this), '001111'); "><input type="radio" name="step3" id="step3_2"><label for="step3_2">CGV 압구정</label></li><li theacd="001186" onclick="selectedTheater($(this), '001186'); "><input type="radio" name="step3" id="step3_3"><label for="step3_3">CGV 청담씨네시티</label></li><li theacd="001128" onclick="selectedTheater($(this), '001128'); "><input type="radio" name="step3" id="step3_4"><label for="step3_4">CINE de CHEF 압구정</label></li><li theacd="001277" onclick="selectedTheater($(this), '001277'); "><input type="radio" name="step3" id="step3_5"><label for="step3_5">롯데시네마 도곡</label></li><li theacd="001071" onclick="selectedTheater($(this), '001071'); "><input type="radio" name="step3" id="step3_6"><label for="step3_6">롯데시네마 브로드웨이(신사)</label></li><li theacd="001169" onclick="selectedTheater($(this), '001169'); "><input type="radio" name="step3" id="step3_7"><label for="step3_7">메가박스 강남대로(씨티)</label></li><li theacd="001003" onclick="selectedTheater($(this), '001003'); "><input type="radio" name="step3" id="step3_8"><label for="step3_8">메가박스 코엑스</label></li><li theacd="001293" onclick="selectedTheater($(this), '001293'); "><input type="radio" name="step3" id="step3_9"><label for="step3_9">씨티극장</label></li><li theacd="001242" onclick="selectedTheater($(this), '001242'); "><input type="radio" name="step3" id="step3_10"><label for="step3_10">픽처하우스</label></li></ul>
                 </div>
-                <div class="ovf step4 on"><!-- 해당 단계일 때 .on 추가 -->
+                <div class="ovf step4 on">해당 단계일 때 .on 추가
                 	<div class="date">
                     	<p><strong>3월 14일</strong></p>
                         <a href="javascript:;" class="prev" id="previous"><span class="ico_comm">이전</span></a>
@@ -686,10 +703,10 @@
            
             </div>
 	
-      <!-- // container -->
+      // container
 	
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
+Global site tag (gtag.js) - Google Analytics
 <script async src="/kobis/web/comm/commjs/gtag.js?id=UA-127072686-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -698,13 +715,13 @@
   gtag('config', 'UA-127072686-1');
 </script>
 
-<!-- AceCounter Log Gathering Script V.8.0.AMZ2019080601 -->
+AceCounter Log Gathering Script V.8.0.AMZ2019080601
  <script language='javascript'>
 	var _AceGID=(function(){var Inf=['gtt6.acecounter.com','8080','AB2A31560820885','AW','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;var _T=new Image(0,0);if(_CI.join('.').indexOf(Inf[3])<0){ _T.src ="https://"+ Inf[0] +'/?cookie'; _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
 	var _AceCounter=(function(){var G=_AceGID;var _sc=document.createElement('script');var _sm=document.getElementsByTagName('script')[0];if(G.o!=0){var _A=G.val[G.o-1];var _G=(_A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];var _U=(_A[5]).replace(/\,/g,'_');_sc.src='https:'+'//cr.acecounter.com/Web/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[4]+'&gd='+_G+'&gp='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime());_sm.parentNode.insertBefore(_sc,_sm);return _sc.src;}})();
 </script>
 <noscript><img src='//gtt6.acecounter.com:8080/?uid=AB2A31560820885&je=n&' border='0' width='0' height='0' alt=''></noscript>	
-<!-- AceCounter Log Gathering Script End -->
+AceCounter Log Gathering Script End
 
 <script language='javascript'>
 function familySite(){
@@ -713,7 +730,7 @@ function familySite(){
    } else if (document.getElementById("familySite").value == "a3") {
 	   window.open ("https://www.kobis.or.kr/kobisopenapi/homepg/main/main.do");
    }
-}
+} -->
 </script>
 <!-- AceCounter Log Gathering Script End -->
 	

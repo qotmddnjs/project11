@@ -62,7 +62,8 @@
             <input placeholder="Password" type="password""loginPw"/>
             <input placeholder="Confirm Password" type="password" name="loginPw"/>
             <input placeholder="Name" type="text"name="name"/>
-            <input placeholder="Birth Date" type="text"name="cellphoneNum"/>
+            <input placeholder="생년월일 ex)98/12/30" type="text"name="cellphoneNum"/>
+            <input placeholder="닉네임" type="text"name="nickname"/>
             <input placeholder="Email" type="text" name="email"/>
             <input class="btn btn-outline btn-info" type="submit" value="가입" />
         </form>

@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +39,8 @@ public class UsrArticleController {
 
 	@Autowired
 	private ReactionPointService reactionPointService;
+
+	
 
 	public UsrArticleController() {
 
@@ -84,31 +86,6 @@ public class UsrArticleController {
 		return "usr/article/list";
 	}
 
-	@RequestMapping("/usr/article/detail")
-	public String showDetail(HttpServletRequest req, Model model, Integer id) {
-		Rq rq = (Rq) req.getAttribute("rq");
-		
-		Article article = articleService.getForPrintArticle(rq.getLoginedMemberId(), id);
-		ResultData usersReactionRd = reactionPointService.usersReaction(rq.getLoginedMemberId(), "article", id);
-
-		if (usersReactionRd.isSuccess()) {
-			model.addAttribute("userCanMakeReaction", usersReactionRd.isSuccess());
-		}
-
-		List<Reply> replies = replyService.getForPrintReplies(rq.getLoginedMemberId(), "article", id);
-
-		int repliesCount = replies.size();
-
-		model.addAttribute("article", article);
-		model.addAttribute("replies", replies);
-		model.addAttribute("repliesCount", repliesCount);
-		model.addAttribute("isAlreadyAddGoodRp",
-				reactionPointService.isAlreadyAddGoodRp(rq.getLoginedMemberId(), id, "article"));
-		model.addAttribute("isAlreadyAddBadRp",
-				reactionPointService.isAlreadyAddBadRp(rq.getLoginedMemberId(), id, "article"));
-
-		return "usr/article/detail";
-	}
 
 	@RequestMapping("/usr/article/doIncreaseHitCountRd")
 	@ResponseBody
@@ -156,6 +133,44 @@ public class UsrArticleController {
 		return Ut.jsReplace(writeArticleRd.getResultCode(), writeArticleRd.getMsg(), "../article/detail?id=" + id);
 
 	}
+	@RequestMapping("/usr/article/detail")
+	public String showDetail(HttpServletRequest req, Model model, @RequestParam(required = false) Integer index) {
+	    Rq rq = (Rq) req.getAttribute("rq");
+
+	    if (index == null) {
+	        return rq.historyBackOnView("올바른 게시물이 아닙니다.");
+	    }
+
+	    List<Article> articles = articleService.getForPrintArticles(1, 10, 1, "title,body", ""); // 임시로 boardId, itemsInAPage, page, searchKeywordTypeCode, searchKeyword을 지정
+
+	    // 현재 게시물 목록의 개수를 확인합니다.
+	    int articlesCount = articles.size();
+
+	    // 인덱스의 범위를 늘리기 위해 새로운 길이로 배열을 복사합니다.
+	    if (index >= articlesCount) {
+	        List<Article> extendedArticles = new ArrayList<>(articles); // 새로운 ArrayList를 생성하여 현재 목록의 내용을 복사합니다.
+	        int extendCount = index - articlesCount + 1; // 추가할 항목 수를 계산합니다.
+	        for (int i = 0; i < extendCount; i++) {
+	            extendedArticles.add(null); // 추가할 항목 수만큼 null 값을 추가합니다.
+	        }
+	        articles = extendedArticles; // 새로운 배열로 교체합니다.
+	    }
+
+	    // 가져온 인덱스가 유효한 범위 내에 있는지 확인합니다.
+	    if (index >= 0 && index < articles.size()) {
+	        Article article = articles.get(index);
+	        // 나머지 로직 생략...
+	        return "usr/article/detail";
+	    } else {
+	        return rq.historyBackOnView("올바른 게시물이 아닙니다.");
+	    }
+	}
+
+
+
+
+
+
 
 	@RequestMapping("/usr/article/modify")
 	public String showModify(HttpServletRequest req, Model model, int id) {

@@ -1,16 +1,13 @@
-// CgvVO.java
-
 package com.example.demo.vo;
 
-import org.jsoup.nodes.Document;
-
-@SuppressWarnings("unused")
 public class CgvVO {
     private String title;
     private String image;
     private String genre;
+    private String director; // 감독 정보 추가
+    private String actors; // 배우 정보 추가
     private int bookcnt;
-	private String detail;
+    private String detail;
 
     public String getGenre() {
         return genre;
@@ -44,12 +41,29 @@ public class CgvVO {
         this.bookcnt = bookcnt;
     }
 
-    public String getdetail() {
+    public String getDetail() {
         return detail;
     }
 
-	public void setdetail(String detail) {
-		this.detail = detail;
-		
-	}
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    // 감독 정보 설정
+    public String getDirector() {
+        return director;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    // 배우 정보 설정
+    public String getActors() {
+        return actors;
+    }
+
+    public void setActors(String actors) {
+        this.actors = actors;
+    }
 }

@@ -18,101 +18,76 @@
 
 <!-- 제이쿼리 불러오기 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<title>Slick Carousel Example</title>
+
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 <body class="mainbody">
 
+<hr style="border-top: 3px solid white;" />
+	<div class="navbar1" style="display: flex; justify-content: center;">
+    <!-- 검색 창 -->
+    <div class="search-container" style="margin-right: 950px;">
+        <form action="/search">
+            <input type="text" placeholder="검색..." name="search" style="width: 500px;  height:40px;">
+            <button type="submit">검색</button>
+        </form>
+    </div>
+    <c:if test="${not rq.isLogined() }">
+        <div class="login-signup-links">
+            <!-- 로그인 링크 -->
+            <a class="hover:underline" href="../member/login" style="margin-right: 50px;">로그인</a>
 
-	<!-- 검색 창 -->
-	<div class="navbar1">
-		<!-- 검색 창 -->
-		<div class="search-container" style="margin-right: 450px;">
-			<form action="/search">
-				<input type="text" placeholder="검색..." name="search" style="width: 300px;">
-				<button type="submit">검색</button>
-			</form>
-		</div>
-		<c:if test="${not rq.isLogined() }">
-			<div class="login-signup-links">
-				<!-- 로그인 링크 -->
-				<a class="hover:underline" href="../member/login" style="margin-right: 50px;">로그인</a>
-
-				<!-- 회원가입 링크 -->
-				<a class="hover:underline" href="../member/join" style="margin-right: 50px;">회원가입</a>
-			</div>
-		</c:if>
+            <!-- 회원가입 링크 -->
+            <a class="hover:underline" href="../member/join" style="margin-right: 50px;">회원가입</a>
+        </div>
+    </c:if>
+</div>
 
 
 
-	</div>
+	
 	<hr style="border-top: 3px solid white;" />
-	<div class="mainback">
-		<div class="container">
+<!-- <div class="mainback">
+    div class="mainback">
+    <div class="container">
+        <div class="slider">
+            <div class="slides">
+                이미지가 삽입될 div
+            </div>
+        </div>
+    </div>
+</div>
 
-			<div class="slider">
+수정된 자바스크립트 코드
+<script>
+    // 새로운 이미지 URL 배열
+    var newImageUrls = [
+        "이미지1.jpg",
+        "이미지2.jpg",
+        "이미지3.jpg",
+        // 추가 이미지 URL들...
+    ];
 
-				<div class="slides">
+    // 슬라이더에 이미지를 추가하는 함수
+    function addImagesToSlider() {
+        var slidesContainer = document.querySelector(".slider .slides");
+        newImageUrls.forEach(function(imageUrl) {
+            var slide = document.createElement("div");
+            slide.className = "slides__img";
+            var filter = document.createElement("div");
+            filter.className = "slides__img__filter";
+            var image = document.createElement("img");
+            image.src = imageUrl;
+            slide.appendChild(filter);
+            slide.appendChild(image);
+            slidesContainer.appendChild(slide);
+        });
+    }
 
-					<!--  The last slide goes before the first one,
-        because the slideshow shows the second slide on load by default. -->
-					<div class="slides__img" id="slide1">
-						<div class="slides__img__filter"></div>
-					</div>
-
-					<div class="slides__img" id="slide2">
-						<div class="slides__img__filter"></div>
-					</div>
-
-					<div class="slides__img" id="slide3">
-						<div class="slides__img__filter"></div>
-					</div>
-
-					<div class="slides__img" id="slide4">
-						<div class="slides__img__filter"></div>
-					</div>
-
-					<div class="slides__img" id="slide5">
-						<div class="slides__img__filter"></div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-	</div>
-
-	<!-- #Controls -->
-	<a class="control fas fa-chevron-left" id="prev"></a>
-	<a class="control fas fa-chevron-right" id="next"></a>
-
-	<!-- #Position dots -->
-	<div class="dots">
-		<span class="dots__single" id="dot1"></span> <span class="dots__single" id="dot2"></span> <span class="dots__single"
-			id="dot3"></span> <span class="dots__single" id="dot4"></span> <span class="dots__single" id="dot5"></span>
-	</div>
-
-	<script>
-		// 크롤링한 이미지 URL 배열
-		var imageUrls = [ "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88012/88012_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88050/88050_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88030/88030_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88054/88054_320.jpg", "https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88052/88052_320.jpg" ];
-
-		// 슬라이드 요소를 가져와서 이미지 URL을 설정
-		var slideElements = document.querySelectorAll(".slides__img");
-		for (var i = 0; i < slideElements.length; i++) {
-			if (i < imageUrls.length) {
-				slideElements[i].style.backgroundImage = "url('" + imageUrls[i]
-						+ "')";
-			} else {
-				console.error("이미지 URL이 부족합니다.");
-			}
-		}
-	</script>
-
-
-
-
+    // 페이지 로드 시 이미지를 슬라이더에 추가
+    window.addEventListener("load", addImagesToSlider);
+</script>
 
 
 
@@ -282,121 +257,120 @@
 							captionSlideUp(1700, "swing");
 							slideShow(800, "swing");
 						});
-	</script>
+	</script> -->
 <%@ page import="java.util.List" %> <!-- List 클래스 import -->
 <%@ page import="com.example.demo.util.CgvDAO" %>
 <%@ page import="com.example.demo.vo.CgvVO" %>
 <%@ page import="com.example.demo.util.CgvService" %>
 
 <html>
-<head>
-    <title>Movie List</title>
-</head>
-<body class="mainbody2">
+
+
+<body class="mainbody2" style="margin-top: 0; background: black;">
     <div class="wrapper">
-        <h2>Slick Carousel Example</h2>
-        <h3>추천영화</h3>
+        
         <div class="carousel">
             <div class="card">
                 <div class="card-header">
-                    <img src="">
-                </div>
-                <div class="card-body">
-                    <div class="card-content"></div>
-                </div>
-            </div> <div class="card">
-                <div class="card-header">
-                    <img src="">
-                </div>
-                <div class="card-body">
-                    <div class="card-content"></div>
-                </div>
-            </div> <div class="card">
-                <div class="card-header">
-                    <img src="">
-                </div>
-                <div class="card-body">
-                    <div class="card-content"></div>
-                </div>
-            </div> <div class="card">
-                <div class="card-header">
-                    <img src="">
-                </div>
-                <div class="card-body">
-                    <div class="card-content"></div>
-                </div>
-            </div> <div class="card">
-                <div class="card-header">
-                    <img src="">
-                </div>
-                <div class="card-body">
-                    <div class="card-content"></div>
+                    <img>
                 </div>
             </div>
-             <div class="card">
+            <div class="card">
                 <div class="card-header">
-                    <img src="">
-                </div>
-                <div class="card-body">
-                    <div class="card-content"></div>
+                    <img>
                 </div>
             </div>
-            
-            <!-- 여러 개의 카드 중간 생략 -->
+            <div class="card">
+                <div class="card-header">
+                    <img>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <img>
+                </div>
+            </div>
         </div>
     </div>
+</body>
 
-    <script>
-        // 영화 목록을 가져와서 JavaScript 배열로 변환
-        var movieList = [
-            <% List<CgvVO> movies = new CgvDAO().getMovies(); %>
-            <% for (int i = 0; i < movies.size(); i++) { %>
-                <% CgvVO movie = movies.get(i); %>
-                {
-                    title: "<%= movie.getTitle() %>",
-                    image: "<%= movie.getImage() %>",
-                    genre: "<%= movie.getGenre() %>"
-                }
-                <% if (i < movies.size() - 1) { %>,<% } %>
-            <% } %>
-        ];
+    
 
-        // 이미지 URL 배열 초기화
-        var imageUrls = [];
-
-        // 영화 목록의 이미지 URL을 imageUrls 배열에 추가
-        for (var i = 0; i < movieList.length; i++) {
-            imageUrls.push(movieList[i].image);
-        }
-
-        // 카드 요소 가져오기
-        var cardElements = document.querySelectorAll(".card");
-
-        // 이미지 URL을 카드에 설정하고 클릭 이벤트 리스너 추가
-        for (var i = 0; i < cardElements.length; i++) {
-            if (i < imageUrls.length) {
-                var imgElement = cardElements[i].querySelector("img");
-                imgElement.src = imageUrls[i];
-                cardElements[i].addEventListener("click", handleCardClick); // 클릭 이벤트 리스너 추가
-                cardElements[i].setAttribute("data-index", i); // 각 카드에 인덱스 속성 추가
-            } else {
-                console.error("이미지 URL이 부족합니다.");
+  <script>
+    // 영화 목록을 가져와서 JavaScript 배열로 변환
+    var movieList = [
+        <% List<CgvVO> movies = new CgvDAO().getMovies(); %>
+        <% for (int i = 0; i < movies.size(); i++) { %>
+            <% CgvVO movie = movies.get(i); %>
+            {
+                title: "<%= movie.getTitle() %>",
+                image: "<%= movie.getImage() %>",
+                genre: "<%= movie.getGenre() %>"
             }
-        }
+            <% if (i < movies.size() - 1) { %>,<% } %>
+        <% } %>
+    ];
 
-        // 카드 클릭 이벤트 핸들러
-       function handleCardClick(event) {
-    var index = event.currentTarget.getAttribute("data-index"); // 클릭한 카드의 인덱스 가져오기
-    // "detail.jsp" 페이지로 이동
-            window.location.href = "../article/detail?index=" + index;
+    // 이미지 URL 배열 초기화
+    var imageUrls = [];
+
+    // 영화 목록의 이미지 URL을 imageUrls 배열에 추가
+    for (var i = 0; i < movieList.length; i++) {
+        imageUrls.push(movieList[i].image);
+    }
+
+    // 카드 요소 가져오기
+    var cardElements = document.querySelectorAll(".card");
+
+    // 이미지 URL을 카드에 설정하고 클릭 이벤트 리스너 추가
+    for (var i = 0; i < cardElements.length; i++) {
+        if (i < imageUrls.length) {
+            var imgElement = cardElements[i].querySelector("img");
+            imgElement.src = imageUrls[i];
+            cardElements[i].addEventListener("click", handleCardClick); // 클릭 이벤트 리스너 추가
+            cardElements[i].setAttribute("data-index", i); // 각 카드에 인덱스 속성 추가
+        } else {
+            console.error("이미지 URL이 부족합니다.");
         }
-    </script>
+    }
+
+    // handleCardClick 함수 정의
+    function handleCardClick(event) {
+        var index = event.currentTarget.getAttribute("data-index"); // 클릭한 카드의 인덱스 가져오기
+        // "detail.jsp" 페이지로 이동하면서 index를 전달
+        window.location.href = "../article/detail?index=" + index;
+    }
+
+    // 여기서 영화 정보를 추가하면 됩니다. 이미지 URL을 새로운 URL로 바꿔야 합니다.
+    movieList.push({ title: "새로운 영화", image: "새로운 이미지 URL", genre: "새로운 장르" });
+    // 위에서 추가한 영화 정보에 대한 이미지 URL을 새로운 URL로 설정합니다.
+    imageUrls.push("새로운 이미지 URL");
+    
+    var imgElements = document.querySelectorAll(".card img");
+
+ // 모든 이미지 요소에 너비와 높이를 적용합니다.
+ imgElements.forEach(function(imgElement) {
+     imgElement.style.width = "500px"; // 너비를 200px로 설정합니다.
+     imgElement.style.height = "100%"; // 높이를 300px로 설정합니다.
+ });
+</script>
+
 </body>
 </html>
 
 
 </body>
-
+<div></div>
 
 
 
@@ -409,7 +383,7 @@
 				slidesToShow : 4,
 				slidesToScroll : 1,
 				autoplay : true,
-				autoplaySpeed : 1000,
+				autoplaySpeed : 3000,
 				dots : true,
 				centerMode : true,
 				responsive : [ {

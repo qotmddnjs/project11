@@ -15,7 +15,7 @@ public class ReactionPointService {
 	@Autowired
 	private ReactionPointRepository reactionPointRepository;
 
-	public ReactionPointService(ReactionPointRepository reactionPointRepository) {
+	public void reactionPointService(ReactionPointRepository reactionPointRepository) {
 		this.reactionPointRepository = reactionPointRepository;
 	}
 

@@ -4,11 +4,14 @@
 <c:set var="pageTitle" value="ARTICLE DETAIL"></c:set>
 <%@ include file="../common/head.jspf"%>
 <%@ include file="../common/toastUiEditorLib.jspf"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.demo.util.CgvDAO" %>
+<%@ page import="com.example.demo.vo.CgvVO" %>
+<%@ page import="com.example.demo.util.CgvService" %>
 
-<!-- <iframe src="http://localhost:8081/usr/article/doIncreaseHitCountRd?id=372" frameborder="0"></iframe> -->
-
+ <!-- <iframe src="http://localhost:8082/usr/article/doIncreaseHitCountRd?id=372" frameborder="0"></iframe> --> 
 <!-- 변수 -->
-<%-- <script>
+ <script>
 	const params = {};
 	params.id = parseInt('${param.id}');
 	params.memberId = parseInt('${loginedMemberId}');
@@ -49,7 +52,7 @@
 
 <!-- 좋아요 싫어요  -->
 <script>
-	<!-- 좋아요 싫어요 버튼	-->
+<!-- 	<!-- 좋아요 싫어요 버튼	-->
 	function checkRP() {
 		if(isAlreadyAddGoodRp == true){
 			$('#likeButton').toggleClass('btn-outline');
@@ -169,7 +172,7 @@
 	$(function() {
 		checkRP();
 	});
-</script>
+</script> -->
 
 <!-- 댓글 -->
 <script>
@@ -242,7 +245,7 @@ function doModifyReply(replyId) {
 </script>
 
 
-<section class="mt-8 text-xl px-4 ">
+ <section class="mt-8 text-xl px-4 ">
 	<div class="">
 		<table class="table-box-1 " border="1">
 			<tbody>
@@ -402,97 +405,46 @@ function doModifyReply(replyId) {
 				</c:forEach>
 			</tbody>
 		</table>
-	</div>
+	</div> --%>
 
-</section> --%>
+</section> 
+<body class="detail" style="background-color: black; color: white; margin: 0; padding: 0;">
+    <div style="text-align: left; padding: 20px;">
+        <h1 style="font-size: 24px;">영화 상세정보</h1>
+        <%-- 영화 목록을 가져와서 JavaScript 배열로 변환 --%>
+        <%
+            List<CgvVO> movies = new CgvDAO().getMovies();
+            int index = Integer.parseInt(request.getParameter("index")); // URL 매개변수에서 영화의 인덱스를 가져옴
+            CgvVO movie = movies.get(index); // 해당 인덱스의 영화를 가져옴
+        %>
+        <div>
+            <!-- 영화 이미지 -->
+            <div style="float: left; margin-left:400px; margin-right: 20px;">
+                <img src="<%= movie.getImage() %>" alt="<%= movie.getTitle() %>" style="width: 700px; height: auto;">
+            </div>
+            <!-- 제목, 장르, 감독 및 배우 -->
+            <div style="overflow: hidden; margin-top: 20px; margin-bottom: 20px; margin-right:400px;font-size: 24px;">
+                <p><strong>제목:</strong> <%= movie.getTitle() %></p>
+                <p><strong>장르:</strong> <%= movie.getGenre() %></p>
+                <p><strong>감독:</strong> <%= movie.getDirector() %></p>
+                <p><strong>배우:</strong> <%= movie.getActors() %></p> <!-- 배우 정보 추가 -->
+                <!-- 기타 영화의 상세 정보를 표시할 수 있습니다 -->
+                <div >
+                <p><strong>상세:</strong> <%= movie.getDetail() %></p> <!-- 상세 정보 추가 -->
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</body>
 
-<script>
-    // JavaScript를 사용하여 제목과 이미지를 페이지에 추가
-    document.addEventListener("DOMContentLoaded", function() {
-        var titleElement = document.createElement("h1");
-        titleElement.textContent = "${article.title}"; // JSP 표현식을 사용하여 article.title 값을 가져옴
-        document.body.appendChild(titleElement);
-
-        var imageElement = document.createElement("img");
-        imageElement.src = "${article.imageUrl}"; // JSP 표현식을 사용하여 article.imageUrl 값을 가져옴
-        document.body.appendChild(imageElement);
-    });
-</script>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
-   
-    <title>Detail Page</title>
-    <!-- 필요한 CSS 파일 링크 추가 -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>상세 정보</h1>
-
-<%
-// URL에서 전달된 index 파라미터 값 가져오기
-String indexParam = request.getParameter("index");
-int index = -1; // 기본값 설정
-if(indexParam != null) {
-    try {
-        index = Integer.parseInt(indexParam);
-    } catch(NumberFormatException e) {
-        // 숫자로 변환할 수 없는 경우 처리
-        out.println("유효하지 않은 index 값입니다.");
-        return; // 혹은 다른 처리를 해도 좋습니다.
-    }
-}
-
-// 이미지 URL 배열
-String[] imageUrls = {
-        "url1.jpg",
-        "url2.jpg",
-        "url3.jpg",
-        // 추가 이미지 URL
-};
-
-// index가 배열의 범위를 벗어나는지 확인
-if(index < 0 || index >= imageUrls.length) {
-    out.println("유효하지 않은 index 값입니다.");
-    return; // 혹은 다른 처리를 해도 좋습니다.
-}
-
-// 해당 index에 해당하는 이미지 URL 가져오기
-String imageUrl = imageUrls[index];
-%>
-
-<!-- 이미지 및 관련 정보 화면에 표시 -->
-<div class="image-container">
-    <img src="<%= imageUrl %>" alt="Image">
-</div>
-
-<%
-// 이미지에 대한 추가 정보를 저장하고 있다면 해당 정보를 가져와서 화면에 표시할 수 있습니다.
-// 예를 들어 이미지 제목과 설명이 있다면 아래와 같이 출력할 수 있습니다.
-String[] imageTitles = {
-        "이미지 1 제목",
-        "이미지 2 제목",
-        "이미지 3 제목",
-        // 추가 이미지 제목
-};
-String[] imageDescriptions = {
-        "이미지 1 설명",
-        "이미지 2 설명",
-        "이미지 3 설명",
-        // 추가 이미지 설명
-};
-
-// 이미지 제목 및 설명 출력
-String title = (index < imageTitles.length) ? imageTitles[index] : "";
-String description = (index < imageDescriptions.length) ? imageDescriptions[index] : "";
-%>
-<div class="image-info">
-    <h2><%= title %></h2>
-    <p><%= description %></p>
-</div>
-    <!-- 필요한 JavaScript 파일 링크 추가 -->
     
-    <script src="script.js"></script>
+   
+</body>
+
+
+
+
 
 
 

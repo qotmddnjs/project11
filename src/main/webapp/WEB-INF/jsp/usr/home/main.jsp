@@ -27,7 +27,7 @@
 <hr style="border-top: 3px solid white;" />
 	<div class="navbar1" style="display: flex; justify-content: center;">
     <!-- 검색 창 -->
-    <div class="search-container" style="margin-right: 950px;">
+    <div class="search-container" style="margin-right: 400px;">
         <form action="/search">
             <input type="text" placeholder="검색..." name="search" style="width: 500px;  height:40px;">
             <button type="submit">검색</button>
@@ -302,9 +302,52 @@
             </div>
         </div>
     </div>
+   <!-- Custom arrow buttons -->
+        <button class="custom-prev">Previous</button>
+        <button class="custom-next">Next</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.carousel').slick({
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                centerMode: true,
+                prevArrow: $('.custom-prev'),
+                nextArrow: $('.custom-next'),
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 </body>
 
-    
 
   <script>
     // 영화 목록을 가져와서 JavaScript 배열로 변환

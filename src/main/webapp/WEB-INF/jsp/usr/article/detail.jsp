@@ -4,14 +4,14 @@
 <c:set var="pageTitle" value="ARTICLE DETAIL"></c:set>
 <%@ include file="../common/head.jspf"%>
 <%@ include file="../common/toastUiEditorLib.jspf"%>
-<%@ page import="java.util.List" %>
-<%@ page import="com.example.demo.util.CgvDAO" %>
-<%@ page import="com.example.demo.vo.CgvVO" %>
-<%@ page import="com.example.demo.util.CgvService" %>
+<%@ page import="java.util.List"%>
+<%@ page import="com.example.demo.util.CgvDAO"%>
+<%@ page import="com.example.demo.vo.CgvVO"%>
+<%@ page import="com.example.demo.util.CgvService"%>
 
- <!-- <iframe src="http://localhost:8082/usr/article/doIncreaseHitCountRd?id=372" frameborder="0"></iframe> --> 
+<!-- <iframe src="http://localhost:8082/usr/article/doIncreaseHitCountRd?id=372" frameborder="0"></iframe> -->
 <!-- 변수 -->
- <%-- <script>
+<%-- <script>
 	const params = {};
 	params.id = parseInt('${param.id}');
 	params.memberId = parseInt('${loginedMemberId}');
@@ -350,7 +350,7 @@ function doModifyReply(replyId) {
 	<c:if test="${!rq.isLogined() }">
 		<a class="btn btn-outline btn-ghost" href="${rq.loginUri }">LOGIN</a> 하고 댓글 써
 	</c:if> --%>
-	<%-- <div class="mx-auto">
+<%-- <div class="mx-auto">
 		<h2>댓글 리스트(${repliesCount })</h2>
 		<table class="table-box-1 table" border="1">
 			<colgroup>
@@ -408,127 +408,153 @@ function doModifyReply(replyId) {
 	</div> 
 </section>  --%>
 <body class="detail" style="background-color: black; color: white; margin: 0; padding: 0;">
-    <div style="text-align: left; padding: 20px;">
-        <h1 style="font-size: 24px;">영화 상세정보</h1>
-        <%-- 영화 목록을 가져와서 JavaScript 배열로 변환 --%>
-        <%
-            List<CgvVO> movies = new CgvDAO().getMovies();
-            int index = Integer.parseInt(request.getParameter("index")); // URL 매개변수에서 영화의 인덱스를 가져옴
-            CgvVO movie = movies.get(index); // 해당 인덱스의 영화를 가져옴
-        %>
-        <div>
-            <!-- 영화 이미지 -->
-            <div style="float: left; margin-left:400px; margin-right: 20px;">
-                <img src="<%= movie.getImage() %>" alt="<%= movie.getTitle() %>" style="width: 700px; height: auto;">
-            </div>
-            <!-- 제목, 장르, 감독 및 배우 -->
-            <div style="overflow: hidden; margin-top: 20px; margin-bottom: 20px; margin-right:400px;font-size: 24px;">
-                <p><strong>제목:</strong> <%= movie.getTitle() %></p>
-                <p><strong>장르:</strong> <%= movie.getGenre() %></p>
-                <p><strong>감독:</strong> <%= movie.getDirector() %></p>
-                <p><strong>배우:</strong> <%= movie.getActors() %></p> <!-- 배우 정보 추가 -->
-                <!-- 기타 영화의 상세 정보를 표시할 수 있습니다 -->
-                <div >
-                <p><strong>상세:</strong> <%= movie.getDetail() %></p> <!-- 상세 정보 추가 -->
-                </div>
-            </div>
-            <div style="clear: both;"></div>
-        </div>
-    </div>
+	<div style="text-align: left; padding: 20px;">
+		<h1 style="font-size: 24px;">영화 상세정보</h1>
+		<%-- 영화 목록을 가져와서 JavaScript 배열로 변환 --%>
+		<%
+		List<CgvVO> movies = new CgvDAO().getMovies();
+		int index = Integer.parseInt(request.getParameter("index")); // URL 매개변수에서 영화의 인덱스를 가져옴
+		CgvVO movie = movies.get(index); // 해당 인덱스의 영화를 가져옴
+		%>
+		<div>
+			<!-- 영화 이미지 -->
+			<div style="float: left; margin-left: 400px; margin-right: 20px;">
+				<img src="<%=movie.getImage()%>" alt="<%=movie.getTitle()%>" style="width: 700px; height: auto;">
+			</div>
+			<!-- 제목, 장르, 감독 및 배우 -->
+			<div style="overflow: hidden; margin-top: 20px; margin-bottom: 20px; margin-right: 400px; font-size: 24px;">
+				<p>
+					<strong>제목:</strong>
+					<%=movie.getTitle()%></p>
+				<p>
+					<strong>장르:</strong>
+					<%=movie.getGenre()%></p>
+				<p>
+					<strong>감독:</strong>
+					<%=movie.getDirector()%></p>
+				<p>
+					<strong>배우:</strong>
+					<%=movie.getActors()%></p>
+				<!-- 배우 정보 추가 -->
+				<!-- 기타 영화의 상세 정보를 표시할 수 있습니다 -->
+				<div>
+					<p>
+						<strong>상세:</strong>
+						<%=movie.getDetail()%></p>
+					<!-- 상세 정보 추가 -->
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+	</div>
 </body>
 <section class="mt-5 px-3">
 	<c:if test="${rq.isLogined() }">
 		<form action="../reply/doWrite" method="POST" onsubmit="ReplyWrite__submit(this); return false;">
-			<input type="hidden" name="relTypeCode" value="article" />
-			<input type="hidden" name="relId" value="${article.id }" />
+			<input type="hidden" name="relTypeCode" value="article" /> <input type="hidden" name="relId" value="${article.id }" />
 			<table class="write-box table-box-1" border="1">
 				<tbody>
 					<tr>
 						<th>내용</th>
-						<td>
-							<textarea class="input input-bordered input-primary w-full max-w-xs" autocomplete="off" placeholder="내용을 입력해주세요"
-								name="body"> </textarea>
-						</td>
+						<td><textarea class="input input-bordered input-primary w-full max-w-xs" autocomplete="off"
+								placeholder="내용을 입력해주세요" name="body"> </textarea></td>
 					</tr>
 					<tr>
 						<th></th>
-						<td>
-							<input class="btn btn-outline btn-info" type="submit" value="댓글 작성" font-color:black;/>
-						</td>
+						<td><input class="btn btn-outline btn-info" type="submit" value="댓글 작성" font-color:black;/></td>
 					</tr>
 				</tbody>
 			</table>
 		</form>
 	</c:if>
-	
+
 	<c:if test="${!rq.isLogined() }">
-		<a class="btn btn-outline btn-ghost" href="${rq.loginUri }">LOGIN</a> 
-	</c:if> 
+		<a class="btn btn-outline btn-ghost" href="${rq.loginUri }">LOGIN</a>
+	</c:if>
 	<div class="mx-auto">
-    <h2 style="color:white">감상평(${repliesCount})</h2>
-    <table class="table-box-1 table" style="color:white;">
-        <colgroup>
-            <col style="width: 10%" />
-            <col style="width: 20%" />
-            <col style="width: 60%" />
-            <col style="width: 10%" />
-        </colgroup>
-        <thead>
-            <tr style="color:white">
-                <th>번호</th>
-                <th>날짜</th>
-                <th>내용</th>
-                <th>작성자</th>
-                <th>좋아요</th>
-                <th>싫어요</th>
-                <th>수정</th>
-                <th>삭제</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <c:forEach var="reply" items="${replies}">
-                <tr class="hover">
-                    <td>${reply.id}</td>
-                    <td>${reply.regDate.substring(0,10)}</td>
-                    <td>
-                        <span id="reply-${reply.id}">${reply.body}</span>
-                        <form method="POST" id="modify-form-${reply.id}" style="display: none;" action="/usr/reply/doModify">
-                            <input type="text" value="${reply.body}" name="reply-text-${reply.id}" />
-                        </form>
-                    </td>
-                    <td>${reply.extra__writer}</td>
-                    <td>${reply.goodReactionPoint}</td>
-                    <td>${reply.badReactionPoint}</td>
-                    <td>
-                        <c:if test="${reply.userCanModify}">
-                            <a href="../reply/modify?id=${reply.id}" class="btn btn-outline" style="white-space: nowrap;">수정</a>
-                            <button onclick="toggleModifybtn('${reply.id}');" id="modify-btn-${reply.id}" class="btn btn-outline" style="white-space: nowrap;">수정</button>
-                            <button onclick="doModifyReply('${reply.id}');" style="white-space: nowrap; display: none;" id="save-btn-${reply.id}" class="btn btn-outline">저장</button>
-                        </c:if>
-                    </td>
-                    <td>
-                        <c:if test="${reply.userCanDelete}">
-                            <a href="../reply/doDelete?id=${reply.id}" class="btn btn-outline" style="white-space: nowrap;" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
-                        </c:if>
-                    </td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-</div>
+		<h2 style="color: white">감상평(${repliesCount})</h2>
+		<table class="table-box-1 table" style="color: white;">
+			<colgroup>
+				<col style="width: 10%" />
+				<col style="width: 20%" />
+				<col style="width: 60%" />
+				<col style="width: 10%" />
+			</colgroup>
+			<tr style="color: white;">
 
 
-    
-   
-</body>
+				<th style="font-size: 18px;">번호</th>
 
 
 
 
+				<th style="font-size: 18px;">날짜</th>
+
+
+				<th style="font-size: 18px;">내용</th>
+
+
+
+
+				<th style="font-size: 18px;">작성자</th>
+
+
+
+
+				<th style="font-size: 18px;"><i class="far fa-thumbs-up"></i> </th>
+				<th style="font-size: 18px;"><i class="far fa-thumbs-down"></i> </th>
+
+
+
+				<th style="font-size: 18px;">수정</th>
+
+
+				<th style="font-size: 18px;">삭제</th>
+
+
+			</tr>
+			</thead>
+			<tbody>
+
+				<c:forEach var="reply" items="${replies}">
+					<tr class="hover">
+						<td>${reply.id}</td>
+						<td>${reply.regDate.substring(0,10)}</td>
+						<td><span id="reply-${reply.id}">${reply.body}</span>
+							<form method="POST" id="modify-form-${reply.id}" style="display: none;" action="/usr/reply/doModify">
+								<input type="text" value="${reply.body}" name="reply-text-${reply.id}" />
+							</form></td>
+						<td>${reply.extra__writer}</td>
+						<td>${reply.goodReactionPoint}</td>
+						<td>${reply.badReactionPoint}</td>
+						<td><c:if test="${reply.userCanModify}">
+								<a href="../reply/modify?id=${reply.id}" class="btn btn-outline" style="white-space: nowrap;">수정</a>
+								<button onclick="toggleModifybtn('${reply.id}');" id="modify-btn-${reply.id}" class="btn btn-outline"
+									style="white-space: nowrap;">수정</button>
+								<button onclick="doModifyReply('${reply.id}');" style="white-space: nowrap; display: none;"
+									id="save-btn-${reply.id}" class="btn btn-outline">저장</button>
+							</c:if></td>
+						<td><c:if test="${reply.userCanDelete}">
+								<a href="../reply/doDelete?id=${reply.id}" class="btn btn-outline" style="white-space: nowrap;"
+									onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
+							</c:if></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+	</body>
 
 
 
 
 
-<%@ include file="../common/foot.jspf"%>
+
+
+
+
+	<%@ include file="../common/foot.jspf"%>

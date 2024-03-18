@@ -1007,6 +1007,28 @@ body {
     max-width: none;
     width: 100%;
 }
+.schedule .step-container {
+    display: flex;
+}
+
+.schedule .step {
+    flex: 1;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+.schedule .step ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.schedule .step ul li {
+    margin: 5px 0;
+}
+
+
 
 
 \***상영정보***\\

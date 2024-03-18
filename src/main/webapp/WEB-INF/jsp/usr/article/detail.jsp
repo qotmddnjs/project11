@@ -422,7 +422,7 @@ function doModifyReply(replyId) {
 				<img src="<%=movie.getImage()%>" alt="<%=movie.getTitle()%>" style="width: 700px; height: auto;">
 			</div>
 			<!-- 제목, 장르, 감독 및 배우 -->
-			<div style="overflow: hidden; margin-top: 20px; margin-bottom: 20px; margin-right: 400px; font-size: 24px;">
+			<div style="overflow: hidden; margin-top: 20px; margin-bottom: 20px; margin-right: 400px; font-size: 20px;">
 				<p>
 					<strong>제목:</strong>
 					<%=movie.getTitle()%></p>
@@ -456,7 +456,7 @@ function doModifyReply(replyId) {
 				<tbody>
 					<tr>
 						<th>내용</th>
-						<td><textarea class="input input-bordered input-primary w-full max-w-xs" autocomplete="off"
+						<td><textarea class="input input-bordered input-primary w-full max-w-xs"style="color:black; autocomplete="off" width:"100%";
 								placeholder="내용을 입력해주세요" name="body"> </textarea></td>
 					</tr>
 					<tr>
@@ -469,7 +469,7 @@ function doModifyReply(replyId) {
 	</c:if>
 
 	<c:if test="${!rq.isLogined() }">
-		<a class="btn btn-outline btn-ghost" href="${rq.loginUri }">LOGIN</a>
+		<a class="btn btn-outline btn-ghost" style = "font-color:white;"href="${rq.loginUri }">로그인 후 이용해주세요</a>
 	</c:if>
 	<div class="mx-auto">
 		<h2 style="color: white">감상평(${repliesCount})</h2>

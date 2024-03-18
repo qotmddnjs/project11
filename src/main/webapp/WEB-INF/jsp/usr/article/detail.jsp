@@ -465,61 +465,59 @@ function doModifyReply(replyId) {
 		<a class="btn btn-outline btn-ghost" href="${rq.loginUri }">LOGIN</a> 
 	</c:if> 
 	<div class="mx-auto">
-		<h2 style = "color:white">감상평(${repliesCount })</h2>
-		<table class="table-box-1 table" border="1">
-			<colgroup>
-				<col style="width: 10%" />
-				<col style="width: 20%" />
-				<col style="width: 60%" />
-				<col style="width: 10%" />
-			</colgroup>
-			<thead>
-				<tr style = "color:white">
-					<th>번호</th>
-					<th>날짜</th>
-					<th>내용</th>
-					<th>작성자</th>
-					<th>좋아요</th>
-					<th>싫어요</th>
-					<th>수정</th>
-					<th>삭제</th>
-				</tr>
-			</thead>
-			<tbody>
+    <h2 style="color:white">감상평(${repliesCount})</h2>
+    <table class="table-box-1 table" style="color:white;">
+        <colgroup>
+            <col style="width: 10%" />
+            <col style="width: 20%" />
+            <col style="width: 60%" />
+            <col style="width: 10%" />
+        </colgroup>
+        <thead>
+            <tr style="color:white">
+                <th>번호</th>
+                <th>날짜</th>
+                <th>내용</th>
+                <th>작성자</th>
+                <th>좋아요</th>
+                <th>싫어요</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
 
-				<c:forEach var="reply" items="${replies }">
-					<tr class="hover">
-						<td>${reply.id }</td>
-						<td>${reply.regDate.substring(0,10) }</td>
-						<td>
-							<span id="reply-${reply.id }">${reply.body }</span>
-							<form method="POST" id="modify-form-${reply.id }" style="display: none;" action="/usr/reply/doModify">
-								<input type="text" value="${reply.body }" name="reply-text-${reply.id }" />
-							</form>
-						</td>
-						<td>${reply.extra__writer }</td>
-						<td>${reply.goodReactionPoint }</td>
-						<td>${reply.badReactionPoint }</td>
-						<td>
-							<c:if test="${reply.userCanModify }">
-															href="../reply/modify?id=${reply.id }"
-								<button onclick="toggleModifybtn('${reply.id}');" id="modify-btn-${reply.id }" style="white-space: nowrap;"
-									class="btn btn-outline">수정</button>
-								<button onclick="doModifyReply('${reply.id}');" style="white-space: nowrap; display: none;"
-									id="save-btn-${reply.id }" class="btn btn-outline">저장</button>
-							</c:if>
-						</td>
-						<td>
-							<c:if test="${reply.userCanDelete }">
-								<a style="white-space: nowrap;" class="btn btn-outline"
-									onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;" href="../reply/doDelete?id=${reply.id }">삭제</a>
-							</c:if>
-						</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div> 
+            <c:forEach var="reply" items="${replies}">
+                <tr class="hover">
+                    <td>${reply.id}</td>
+                    <td>${reply.regDate.substring(0,10)}</td>
+                    <td>
+                        <span id="reply-${reply.id}">${reply.body}</span>
+                        <form method="POST" id="modify-form-${reply.id}" style="display: none;" action="/usr/reply/doModify">
+                            <input type="text" value="${reply.body}" name="reply-text-${reply.id}" />
+                        </form>
+                    </td>
+                    <td>${reply.extra__writer}</td>
+                    <td>${reply.goodReactionPoint}</td>
+                    <td>${reply.badReactionPoint}</td>
+                    <td>
+                        <c:if test="${reply.userCanModify}">
+                            <a href="../reply/modify?id=${reply.id}" class="btn btn-outline" style="white-space: nowrap;">수정</a>
+                            <button onclick="toggleModifybtn('${reply.id}');" id="modify-btn-${reply.id}" class="btn btn-outline" style="white-space: nowrap;">수정</button>
+                            <button onclick="doModifyReply('${reply.id}');" style="white-space: nowrap; display: none;" id="save-btn-${reply.id}" class="btn btn-outline">저장</button>
+                        </c:if>
+                    </td>
+                    <td>
+                        <c:if test="${reply.userCanDelete}">
+                            <a href="../reply/doDelete?id=${reply.id}" class="btn btn-outline" style="white-space: nowrap;" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
+                        </c:if>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+</div>
+
 
     
    

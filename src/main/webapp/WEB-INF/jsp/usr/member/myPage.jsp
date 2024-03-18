@@ -66,7 +66,7 @@
     <a href=""></a>
     <div class ="mupageba3"></div>
   </div> 
-  <!-- <div class="information">
+ <!--  <!-- <div class="information">
     여기에 정보를 추가해주세요.
     <div>
       <p class="info-item">이름: [이름]</p>
@@ -75,7 +75,7 @@
       <p class="info-item">이메일: [이메일]</p>
     </div>
   </div>
-</div>
+</div> -->
 
 
   

@@ -1007,7 +1007,7 @@ body {
     max-width: none;
     width: 100%;
 }
-.schedule .step-container {
+.schedule  {
     display: flex;
 }
 
@@ -1027,6 +1027,30 @@ body {
 .schedule .step ul li {
     margin: 5px 0;
 }
+.post th {
+    text-align: right; /* 텍스트를 오른쪽으로 정렬합니다. */
+    display: flex; /* 요소를 행으로 배치합니다. */
+}
+.step-container {
+    width: 100%; /* 또는 원하는 너비로 설정 */
+}
+
+.step {
+    display: inline-block;
+    vertical-align: top; /* 요소들을 위쪽에 정렬 */
+}
+
+
+
+.step ul {
+    display: flex;
+    padding: 0;
+}
+
+.step li {
+    margin-right: 10px;
+}
+
 
 
 

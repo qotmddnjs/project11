@@ -266,7 +266,7 @@
 <html>
 
 
-<body class="mainbody2" style="margin-top: 0; background: black;">
+<body class="mainbody2" style="margin-top: 0; background: black; hight:100%;">
     <div class="wrapper">
         
         <div class="carousel">
@@ -461,7 +461,7 @@
 	<div class="board">
 		<h2>인기 영화</h2>
 		<ul class="post-list">
-			<li class="post">게시글 1</li>
+			<li class="post">파묘<th style="font-size: 18px;"><i class="far fa-thumbs-up"></i> </th></li>
 			<li class="post">게시글 2</li>
 			<li class="post">게시글 3</li>
 		</ul>
@@ -605,18 +605,18 @@
 </div>
 
 
-                    <ul id="schedule">
+             <!--        <ul id="schedule">
                     <li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','19970037')">비트(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_1_1" disabled="disabled"><label for="step4_1_1" style="cursor:default;">23:45</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20234675')">파묘(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_2_1" disabled="disabled"><label for="step4_2_1" style="cursor:default;">26:10</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20236295')">듄: 파트2(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_3_1" disabled="disabled"><label for="step4_3_1" style="cursor:default;">16:45</label><input type="radio" name="step4" id="step4_3_2" disabled="disabled"><label for="step4_3_2" style="cursor:default;">20:20</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20236732')">가여운 것들(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_4_1" disabled="disabled"><label for="step4_4_1" style="cursor:default;">11:30</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20247053')">메이 디셈버(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_5_1" disabled="disabled"><label for="step4_5_1" style="cursor:default;">09:00</label></div></li><li><div class="tit"><span class="screen">01관</span><a href="#" onclick="mstView('movie','20247198')">마담 웹(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_6_1" disabled="disabled"><label for="step4_6_1" style="cursor:default;">14:20</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','19980003')">태양은 없다(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_7_1" disabled="disabled"><label for="step4_7_1" style="cursor:default;">22:00</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20234789')">패스트 라이브즈(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_8_1" disabled="disabled"><label for="step4_8_1" style="cursor:default;">10:10</label><input type="radio" name="step4" id="step4_8_2" disabled="disabled"><label for="step4_8_2" style="cursor:default;">14:50</label><input type="radio" name="step4" id="step4_8_3" disabled="disabled"><label for="step4_8_3" style="cursor:default;">19:40</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20236732')">가여운 것들(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_9_1" disabled="disabled"><label for="step4_9_1" style="cursor:default;">24:20</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20247053')">메이 디셈버(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_10_1" disabled="disabled"><label for="step4_10_1" style="cursor:default;">17:05</label></div></li><li><div class="tit"><span class="screen">02관</span><a href="#" onclick="mstView('movie','20247076')">귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_11_1" disabled="disabled"><label for="step4_11_1" style="cursor:default;">12:30</label></div></li><li><div class="tit"><span class="screen">03관</span><a href="#" onclick="mstView('movie','20234675')">파묘(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_12_1" disabled="disabled"><label for="step4_12_1" style="cursor:default;">09:10</label><input type="radio" name="step4" id="step4_12_2" disabled="disabled"><label for="step4_12_2" style="cursor:default;">11:50</label><input type="radio" name="step4" id="step4_12_3" disabled="disabled"><label for="step4_12_3" style="cursor:default;">14:40</label><input type="radio" name="step4" id="step4_12_4" disabled="disabled"><label for="step4_12_4" style="cursor:default;">17:25</label><input type="radio" name="step4" id="step4_12_5" disabled="disabled"><label for="step4_12_5" style="cursor:default;">20:10</label><input type="radio" name="step4" id="step4_12_6" disabled="disabled"><label for="step4_12_6" style="cursor:default;">22:50</label><input type="radio" name="step4" id="step4_12_7" disabled="disabled"><label for="step4_12_7" style="cursor:default;">25:30</label></div></li><li><div class="tit"><span class="screen">04관(SCREENX)</span><a href="#" onclick="mstView('movie','20234675')">파묘(ScreenX)</a></div><div class="times"><input type="radio" name="step4" id="step4_13_1" disabled="disabled"><label for="step4_13_1" style="cursor:default;">12:40</label></div></li><li><div class="tit"><span class="screen">04관(SCREENX)</span><a href="#" onclick="mstView('movie','20236295')">듄: 파트2(ScreenX)</a></div><div class="times"><input type="radio" name="step4" id="step4_14_1" disabled="disabled"><label for="step4_14_1" style="cursor:default;">09:20</label><input type="radio" name="step4" id="step4_14_2" disabled="disabled"><label for="step4_14_2" style="cursor:default;">15:30</label><input type="radio" name="step4" id="step4_14_3" disabled="disabled"><label for="step4_14_3" style="cursor:default;">21:20</label><input type="radio" name="step4" id="step4_14_4" disabled="disabled"><label for="step4_14_4" style="cursor:default;">24:40</label></div></li><li><div class="tit"><span class="screen">04관(SCREENX)</span><a href="#" onclick="mstView('movie','20247198')">마담 웹(ScreenX)</a></div><div class="times"><input type="radio" name="step4" id="step4_15_1" disabled="disabled"><label for="step4_15_1" style="cursor:default;">18:50</label></div></li><li><div class="tit"><span class="screen">05관</span><a href="#" onclick="mstView('movie','20234675')">파묘(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_16_1" disabled="disabled"><label for="step4_16_1" style="cursor:default;">10:30</label><input type="radio" name="step4" id="step4_16_2" disabled="disabled"><label for="step4_16_2" style="cursor:default;">13:20</label><input type="radio" name="step4" id="step4_16_3" disabled="disabled"><label for="step4_16_3" style="cursor:default;">16:10</label><input type="radio" name="step4" id="step4_16_4" disabled="disabled"><label for="step4_16_4" style="cursor:default;">19:00</label><input type="radio" name="step4" id="step4_16_5" disabled="disabled"><label for="step4_16_5" style="cursor:default;">21:45</label><input type="radio" name="step4" id="step4_16_6" disabled="disabled"><label for="step4_16_6" style="cursor:default;">24:30</label></div></li><li><div class="tit"><span class="screen">06관</span><a href="#" onclick="mstView('movie','20236295')">듄: 파트2(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_17_1" disabled="disabled"><label for="step4_17_1" style="cursor:default;">12:00</label><input type="radio" name="step4" id="step4_17_2" disabled="disabled"><label for="step4_17_2" style="cursor:default;">22:10</label><input type="radio" name="step4" id="step4_17_3" disabled="disabled"><label for="step4_17_3" style="cursor:default;">25:25</label></div></li><li><div class="tit"><span class="screen">06관</span><a href="#" onclick="mstView('movie','20236488')">밥 말리: 원 러브(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_18_1" disabled="disabled"><label for="step4_18_1" style="cursor:default;">09:40</label><input type="radio" name="step4" id="step4_18_2" disabled="disabled"><label for="step4_18_2" style="cursor:default;">15:20</label><input type="radio" name="step4" id="step4_18_3" disabled="disabled"><label for="step4_18_3" style="cursor:default;">19:50</label></div></li><li><div class="tit"><span class="screen">06관</span><a href="#" onclick="mstView('movie','20247076')">귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로(디지털)</a></div><div class="times"><input type="radio" name="step4" id="step4_19_1" disabled="disabled"><label for="step4_19_1" style="cursor:default;">17:40</label></div></li></ul>
                 </div>
            </ul>
             </div>
-            </div>
+            </div> -->
             
 	
      
 	
 
-Global site tag (gtag.js) - Google Analytics
+<!-- Global site tag (gtag.js) - Google Analytics
 <script async src="/kobis/web/comm/commjs/gtag.js?id=UA-127072686-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -640,7 +640,7 @@ function familySite(){
    } else if (document.getElementById("familySite").value == "a3") {
 	   window.open ("https://www.kobis.or.kr/kobisopenapi/homepg/main/main.do");
    }
-} -->
+} --> 
 </script>
 <!-- AceCounter Log Gathering Script End -->
 	

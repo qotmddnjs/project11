@@ -529,7 +529,10 @@ CREATE TABLE movies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(250),
     image VARCHAR(250),
-    genre VARCHAR(250)
+    genre VARCHAR(250),
+    detail VARCHAR(250),
+    director VARCHAR(250),
+    actors VARCHAR(250)
 );
 
 SELECT * FROM  movies;

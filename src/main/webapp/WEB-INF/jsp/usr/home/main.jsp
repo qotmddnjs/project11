@@ -550,7 +550,7 @@
 </script>
 
 
-<!-- <link rel="stylesheet" type="text/css" href="/kobis/web/comm/commcss/autoLogout.css">
+ <link rel="stylesheet" type="text/css" href="/kobis/web/comm/commcss/autoLogout.css">
 
 
 

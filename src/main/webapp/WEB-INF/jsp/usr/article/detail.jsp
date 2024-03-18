@@ -453,7 +453,7 @@ function doModifyReply(replyId) {
 					<tr>
 						<th></th>
 						<td>
-							<input class="btn btn-outline btn-info" type="submit" value="댓글 작성" />
+							<input class="btn btn-outline btn-info" type="submit" value="댓글 작성" font-color:black;/>
 						</td>
 					</tr>
 				</tbody>
